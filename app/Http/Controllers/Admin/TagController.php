@@ -37,7 +37,7 @@ class TagController extends Controller
         $tag->save();
 
         Toastr::success('message', 'Tag created successfully.');
-        return redirect()->route('admin.tags.index');
+        return redirect()->route('admin.tags.index',app()->getLocale());
     }
 
 
@@ -67,7 +67,7 @@ class TagController extends Controller
         $tag->save();
 
         Toastr::success('message', 'Tag updated successfully.');
-        return redirect()->route('admin.tags.index');
+        return redirect()->route('admin.tags.index',app()->getLocale());
     }
 
 

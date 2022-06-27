@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.properties.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.properties.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -74,16 +74,16 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="{{route('admin.properties.show',$property->slug)}}" class="btn btn-success btn-sm waves-effect">
+                                        <a href="{{route('admin.properties.show',[app()->getLocale(),$property->slug])}}" class="btn btn-success btn-sm waves-effect">
                                             <i class="material-icons">visibility</i>
                                         </a>
-                                        <a href="{{route('admin.properties.edit',$property->slug)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.properties.edit',[app()->getLocale(),$property->slug])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deletePost({{$property->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.properties.destroy',$property->slug)}}" method="POST" id="del-post-{{$property->id}}" style="display:none;">
+                                        <form action="{{route('admin.properties.destroy',[app()->getLocale(),$property->slug])}}" method="POST" id="del-post-{{$property->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

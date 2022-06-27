@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.services.index')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.services.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -24,7 +24,7 @@
                     <h2>CREATE SERVICE</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.services.store')}}" method="POST">
+                    <form action="{{route('admin.services.store',app()->getLocale())}}" method="POST">
                         @csrf
 
                         <div class="form-group form-float">

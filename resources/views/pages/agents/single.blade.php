@@ -39,7 +39,7 @@
                             <div class="card-stacked">
                                 <div class="p-20 property-content">
                                     <span class="card-title search-title" title="{{$property->title}}">
-                                        <a href="{{ route('property.show',$property->slug) }}">{{ str_limit($property->title,25) }}</a>
+                                        <a href="{{ route('property.show',[app()->getLocale(),$property->slug]) }}">{{ str_limit($property->title,25) }}</a>
                                     </span>
                                     <h5>
                                         &dollar;{{ $property->price }}
@@ -131,7 +131,7 @@
                 e.preventDefault();
 
                 var data = $(this).serialize();
-                var url = "{{ route('property.message') }}";
+                var url = "{{ route('property.message',app()->getLocale()) }}";
                 var btn = $('#msgsubmitbtn');
 
                 $.ajax({

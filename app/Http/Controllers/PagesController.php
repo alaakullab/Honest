@@ -29,7 +29,7 @@ class PagesController extends Controller
         return view('pages.properties.property', compact('properties','cities'));
     }
 
-    public function propertieshow($slug)
+    public function propertieshow($locale,$slug)
     {
         $property = Property::with('features','gallery','user','comments')
                             ->withCount('comments')
@@ -62,7 +62,7 @@ class PagesController extends Controller
         return view('pages.agents.index', compact('agents'));
     }
 
-    public function agentshow($id)
+    public function agentshow($locale,$id)
     {
         $agent      = User::findOrFail($id);
         $properties = Property::latest()->where('agent_id', $id)->paginate(10);
@@ -90,7 +90,7 @@ class PagesController extends Controller
         return view('pages.blog.index', compact('posts'));
     }
 
-    public function blogshow($slug)
+    public function blogshow($locale,$slug)
     {
         $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first(); 
 
@@ -240,7 +240,7 @@ class PagesController extends Controller
 
 
     // PROPERTY COMMENT
-    public function propertyComments(Request $request, $id)
+    public function propertyComments($locale,Request $request, $id)
     {
         $request->validate([
             'body'  => 'required'

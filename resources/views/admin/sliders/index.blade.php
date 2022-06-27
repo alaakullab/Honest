@@ -19,7 +19,7 @@
                 <div class="header bg-indigo">
                     <h2>
                         SLIDER LIST
-                        <a href="{{route('admin.sliders.create')}}" class="btn waves-effect waves-light right headerightbtn">
+                        <a href="{{route('admin.sliders.create',app()->getLocale())}}" class="btn waves-effect waves-light right headerightbtn">
                             <i class="material-icons left">add</i>
                             <span>CREATE </span>
                         </a>
@@ -49,13 +49,13 @@
                                     <td>{{$slider->title}}</td>
                                     <td>{{$slider->description}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.sliders.edit',$slider->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.sliders.edit',[app()->getLocale(),$slider->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteSlider({{$slider->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.sliders.destroy',$slider->id)}}" method="POST" id="del-slider-{{$slider->id}}" style="display:none;">
+                                        <form action="{{route('admin.sliders.destroy',[app()->getLocale(),$slider->id])}}" method="POST" id="del-slider-{{$slider->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

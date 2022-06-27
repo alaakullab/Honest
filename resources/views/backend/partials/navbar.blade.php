@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{{ route('admin.dashboard') }}">Real Estate</a>
+                <a class="navbar-brand" href="{{ route('admin.dashboard',app()->getLocale()) }}">Real Estate</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -26,7 +26,7 @@
                                 <ul class="menu">
                                     @foreach($navbarmessages as $message)
                                     <li>
-                                        <a href="{{route('admin.message.read',$message->id)}}">
+                                        <a href="{{route('admin.message.read',[app()->getLocale(),$message->id])}}">
                                             <div class="icon-circle bg-light-green">
                                                 <i class="material-icons">message</i>
                                             </div>
@@ -43,7 +43,7 @@
                                 </ul>
                             </li>
                             <li class="footer">
-                                <a href="{{ route('admin.message') }}">View All Messages</a>
+                                <a href="{{ route('admin.message',app()->getLocale()) }}">View All Messages</a>
                             </li>
                         </ul>
                     </li>
@@ -57,29 +57,29 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                             <li>
-                                <a href="{{route('admin.profile')}}"><i class="material-icons">person</i>Profile</a>
+                                <a href="{{route('admin.profile',app()->getLocale())}}"><i class="material-icons">person</i>Profile</a>
                             </li>
 
                             <li role="seperator" class="divider"></li>
                             <li>
-                                <a href="{{ route('admin.message') }}"><i class="material-icons">message</i>Messages</a>
+                                <a href="{{ route('admin.message',app()->getLocale()) }}"><i class="material-icons">message</i>Messages</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.changepassword') }}"><i class="material-icons">lock</i>Password</a>
+                                <a href="{{ route('admin.changepassword',app()->getLocale()) }}"><i class="material-icons">lock</i>Password</a>
                             </li>
                             <li>
-                                <a href="{{ route('home') }}" target="_blank"><i class="material-icons">home</i>Visit Site</a>
+                                <a href="{{ route('home',app()->getLocale()) }}" target="_blank"><i class="material-icons">home</i>Visit Site</a>
                             </li>
                             <li role="seperator" class="divider"></li>
 
                             <li>
-                                <a class="dropdownitem" href="{{ route('logout') }}"
+                                <a class="dropdownitem" href="{{ route('logout',app()->getLocale()) }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     <i class="material-icons">input</i> {{ __('Sign Out') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout',app()->getLocale()) }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             </li>

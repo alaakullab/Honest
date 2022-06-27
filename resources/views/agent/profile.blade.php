@@ -20,7 +20,7 @@
                     <div class="agent-content">
                         <h4 class="agent-title">PROFILE</h4>
 
-                        <form action="{{route('agent.profile.update')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('agent.profile.update',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">

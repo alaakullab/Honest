@@ -10,39 +10,39 @@
         <h6 class="m-t-0"><small>{{ auth()->user()->email }}</small></h6>
     </li>
 
-    <a href="{{ route('agent.dashboard') }}">
+    <a href="{{ route('agent.dashboard',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/dashboard') ? 'active' : '' }}">
             <i class="material-icons left">dashboard</i>
             <span>Dashboard<span>
         </li>
     </a>
 
-    <a href="{{ route('agent.profile') }}">
+    <a href="{{ route('agent.profile',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/profile') ? 'active' : '' }}">
             <i class="material-icons left">person</i>
             <span>Profile</span>
         </li>
     </a>
-    <a href="{{ route('agent.message') }}">
+    <a href="{{ route('agent.message',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/message*') ? 'active' : '' }}">
             <i class="material-icons left">mail</i>
             <span>Messages</span>
         </li>
     </a>
 
-    <a href="{{ route('agent.properties.index') }}">
+    <a href="{{ route('agent.properties.index',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/properties') ? 'active' : '' }}">
             <i class="material-icons left">view_list</i>
             <span>Properties<span>
         </li>
     </a>
-    <a href="{{ route('agent.properties.create') }}">
+    <a href="{{ route('agent.properties.create',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/properties/create') ? 'active' : '' }}">
             <i class="material-icons left">create</i>
             <span>Create Property<span>
         </li>
     </a>
-    <a href="{{ route('agent.changepassword') }}">
+    <a href="{{ route('agent.changepassword',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/changepassword') ? 'active' : '' }}">
             <i class="material-icons left">lock</i>
             <span>Change Password</span>

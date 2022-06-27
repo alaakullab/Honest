@@ -43,15 +43,15 @@ class LoginController extends Controller
     {
         if ($user->hasRole('Admin')) {
 
-            $this->redirectTo = route('admin.dashboard');
+            $this->redirectTo = route('admin.dashboard',app()->getLocale());
 
         } elseif ($user->hasRole('Agent')) {
 
-            $this->redirectTo = route('agent.dashboard');
+            $this->redirectTo = route('agent.dashboard',app()->getLocale());
 
         } elseif ($user->hasRole('User')) {
 
-            $this->redirectTo = route('user.dashboard');
+            $this->redirectTo = route('user.dashboard',app()->getLocale());
         }
     }
 }

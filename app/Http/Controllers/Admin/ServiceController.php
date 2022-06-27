@@ -41,7 +41,7 @@ class ServiceController extends Controller
         $service->save();
 
         Toastr::success('message', 'Service created successfully.');
-        return redirect()->route('admin.services.index');
+        return redirect()->route('admin.services.index',app()->getLocale());
     }
 
 
@@ -70,7 +70,7 @@ class ServiceController extends Controller
         $service->save();
 
         Toastr::success('message', 'Service updated successfully.');
-        return redirect()->route('admin.services.index');
+        return redirect()->route('admin.services.index',app()->getLocale());
     }
 
 

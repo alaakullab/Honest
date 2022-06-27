@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.features.index')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.features.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -24,7 +24,7 @@
                     <h2>CREATE FEATURE</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.features.store')}}" method="POST">
+                    <form action="{{route('admin.features.store',app()->getLocale())}}" method="POST">
                         @csrf
 
                         <div class="form-group form-float">

@@ -44,21 +44,21 @@
                                         </td>
                                         <td>
                                             @if($message->status == 0)
-                                                <a href="{{route('agent.message.read',$message->id)}}" class="btn btn-small orange waves-effect">
+                                                <a href="{{route('agent.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-small orange waves-effect">
                                                     <i class="material-icons">local_library</i>
                                                 </a>
                                             @else 
-                                                <a href="{{route('agent.message.read',$message->id)}}" class="btn btn-small green waves-effect">
+                                                <a href="{{route('agent.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-small green waves-effect">
                                                     <i class="material-icons">done</i>
                                                 </a>
                                             @endif
-                                            <a href="{{route('agent.message.replay',$message->id)}}" class="btn btn-small indigo waves-effect">
+                                            <a href="{{route('agent.message.replay',[app()->getLocale(),$message->id])}}" class="btn btn-small indigo waves-effect">
                                                 <i class="material-icons">replay</i>
                                             </a>
                                             <button type="button" class="btn btn-small red waves-effect" onclick="deleteMessage({{$message->id}})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form action="{{route('agent.messages.destroy',$message->id)}}" method="POST" id="del-message-{{$message->id}}" style="display:none;">
+                                            <form action="{{route('agent.messages.destroy',[app()->getLocale(),$message->id])}}" method="POST" id="del-message-{{$message->id}}" style="display:none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>

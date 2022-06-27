@@ -15,7 +15,7 @@
     <div class="block-header"></div>
 
     <div class="row clearfix">
-        <form action="{{route('admin.properties.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.properties.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
@@ -127,6 +127,7 @@
                                 <option value="">-- Please select --</option>
                                 <option value="house">House</option>
                                 <option value="apartment">Apartment</option>
+                                <option value="chalet">Chalet</option>
                             </select>
                         </div>
                     </div>
@@ -151,13 +152,13 @@
                         <h5>Google Map</h5>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="location_latitude" class="form-control" required/>
+                                <input type="text" name="location_latitude" class="form-control" />
                                 <label class="form-label">Latitude</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="location_longitude" class="form-control" required/>
+                                <input type="text" name="location_longitude" class="form-control" />
                                 <label class="form-label">Longitude</label>
                             </div>
                         </div>
@@ -185,7 +186,7 @@
                     </div>
 
                     {{-- BUTTON --}}
-                    <a href="{{route('admin.properties.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
                         <span>BACK</span>
                     </a>

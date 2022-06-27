@@ -35,7 +35,7 @@ class DashboardController extends Controller
 
         return view('agent.profile',compact('profile'));
     }
-    public function profileUpdate(Request $request)
+    public function profileUpdate($locale,Request $request)
     {
         $request->validate([
             'name'      => 'required',
@@ -83,7 +83,7 @@ class DashboardController extends Controller
 
     }
 
-    public function changePasswordUpdate(Request $request)
+    public function changePasswordUpdate($locale,Request $request)
     {
         if (!(Hash::check($request->get('currentpassword'), Auth::user()->password))) {
 
@@ -119,21 +119,21 @@ class DashboardController extends Controller
         return view('agent.messages.index',compact('messages'));
     }
 
-    public function messageRead($id)
+    public function messageRead($locale,$id)
     {
         $message = Message::findOrFail($id);
 
         return view('agent.messages.read',compact('message'));
     }
 
-    public function messageReplay($id)
+    public function messageReplay($locale,$id)
     {
-        $message = Message::findOrFail($id);
+        $message = Message::findOrFail($locale,$id);
 
         return view('agent.messages.replay',compact('message'));
     }
 
-    public function messageSend(Request $request)
+    public function messageSend($locale,Request $request)
     {
         $request->validate([
             'agent_id'  => 'required',
@@ -151,7 +151,7 @@ class DashboardController extends Controller
 
     }
 
-    public function messageReadUnread(Request $request)
+    public function messageReadUnread($locale,Request $request)
     {
         $status = $request->status;
         $msgid  = $request->messageid;
@@ -166,10 +166,10 @@ class DashboardController extends Controller
         $message->status = $status;
         $message->save();
 
-        return redirect()->route('agent.message');
+        return redirect()->route('agent.message',app()->getLocale());
     }
 
-    public function messageDelete($id)
+    public function messageDelete($locale,$id)
     {
         $message = Message::findOrFail($id);
         $message->delete();
@@ -179,7 +179,7 @@ class DashboardController extends Controller
     }
 
 
-    public function contactMail(Request $request)
+    public function contactMail($locale,Request $request)
     {
         $message  = $request->message;
         $name     = $request->name;

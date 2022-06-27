@@ -20,7 +20,7 @@
                     <div class="agent-content">
                         <h4 class="agent-title">CREATE PROPERTY</h4>
 
-                        <form action="{{route('agent.properties.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('agent.properties.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="input-field col s12">

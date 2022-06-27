@@ -14,7 +14,7 @@
 
                     <h2 class="sidebar-title">search property</h2>
 
-                    <form class="sidebar-search" action="{{ route('search')}}" method="GET">
+                    <form class="sidebar-search" action="{{ route('search',app()->getLocale())}}" method="GET">
 
                         <div class="searchbar">
                             <div class="input-field col s12">
@@ -27,6 +27,7 @@
                                     <option value="" disabled selected>Choose Type</option>
                                     <option value="apartment">Apartment</option>
                                     <option value="house">House</option>
+                                    <option value="chalet">Chalet</option>
                                 </select>
                             </div>
     
@@ -109,7 +110,7 @@
                                         </div>
                                     @endif
                                     <span class="card-title search-title" title="{{$property->title}}">
-                                        <a href="{{ route('property.show',$property->slug) }}">{{ $property->title }}</a>
+                                        <a href="{{ route('property.show',[app()->getLocale(),$property->slug]) }}">{{ $property->title }}</a>
                                     </span>
                                     
                                     <div class="address">

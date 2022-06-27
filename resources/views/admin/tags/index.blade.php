@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.tags.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.tags.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -53,13 +53,13 @@
                                     <td>{{$tag->posts->count()}}</td>
                                     <td>{{$tag->slug}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.tags.edit',$tag->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.tags.edit',[app()->getLocale(),$tag->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteTag({{$tag->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.tags.destroy',$tag->id)}}" method="POST" id="del-tag-{{$tag->id}}" style="display:none;">
+                                        <form action="{{route('admin.tags.destroy',[app()->getLocale(),$tag->id])}}" method="POST" id="del-tag-{{$tag->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

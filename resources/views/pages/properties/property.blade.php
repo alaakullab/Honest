@@ -17,7 +17,7 @@
                 <div class="city-categories">
                     @foreach($cities as $city)
                         <div class="col s12 m3">
-                            <a href="{{ route('property.city',$city->city_slug) }}">
+                            <a href="{{ route('property.city',[app()->getLocale(),$city->city_slug]) }}">
                                 <div class="city-category">
                                     <span>{{ $city->city }}</span>
                                 </div>
@@ -43,7 +43,7 @@
                                 @endif
                             </div>
                             <div class="card-content property-content">
-                                <a href="{{ route('property.show',$property->slug) }}">
+                                <a href="{{ route('property.show',[app()->getLocale(),$property->slug]) }}">
                                     <span class="card-title tooltipped" data-position="bottom" data-tooltip="{{ $property->title }}">{{ str_limit( $property->title, 18 ) }}</span>
                                 </a>
 

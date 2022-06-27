@@ -47,7 +47,7 @@
                                 @endif
                             </div>
                             <div class="card-content property-content">
-                                <a href="{{ route('property.show',$property->slug) }}">
+                                <a href="{{ route('property.show',[app()->getLocale(),$property->slug]) }}">
                                     <span class="card-title tooltipped" data-position="bottom" data-tooltip="{{ $property->title }}">{{ str_limit( $property->title, 18 ) }}</span>
                                 </a>
 
@@ -185,6 +185,12 @@
 @endsection
 
 @section('scripts')
+    <script>
+
+        function changeLanguage(lang){
+            window.location='{{url("change-language")}}/'+lang;
+        }
+    </script>
 <script>
     $(function(){
         var js_properties = <?php echo json_encode($properties);?>;

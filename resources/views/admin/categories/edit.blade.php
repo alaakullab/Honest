@@ -24,7 +24,7 @@
                     <h2>EDIT CATEGORY</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.categories.update',$category->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.categories.update',[app()->getLocale(),$category->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 

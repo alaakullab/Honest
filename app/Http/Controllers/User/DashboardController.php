@@ -164,7 +164,7 @@ class DashboardController extends Controller
         $message->status = $status;
         $message->save();
 
-        return redirect()->route('user.message');
+        return redirect()->route('user.message',app()->getLocale());
     }
 
     public function messageDelete($id)

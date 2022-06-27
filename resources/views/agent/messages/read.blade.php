@@ -29,12 +29,12 @@
                             <p>{!! $message->message !!}</p>
                         </div>
 
-                        <a href="{{route('agent.message.replay',$message->id)}}" class="btn btn-small indigo waves-effect">
+                        <a href="{{route('agent.message.replay',[app()->getLocale(),$message->id])}}" class="btn btn-small indigo waves-effect">
                             <i class="material-icons left">replay</i>
                             <span>Replay</span>
                         </a>
 
-                        <form class="right" action="{{route('agent.message.readunread')}}" method="POST">
+                        <form class="right" action="{{route('agent.message.readunread',app()->getLocale())}}" method="POST">
                             @csrf
                             <input type="hidden" name="status" value="{{ $message->status }}">
                             <input type="hidden" name="messageid" value="{{ $message->id }}">

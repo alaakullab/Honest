@@ -37,15 +37,15 @@ class ResetPasswordController extends Controller
     {
         if(Auth::check() && Auth::user()->role->id == 1 ){
 
-            $this->redirectTo = route('admin.dashboard');
+            $this->redirectTo = route('admin.dashboard',app()->getLocale());
 
         }elseif(Auth::check() && Auth::user()->role->id == 2 ){
 
-            $this->redirectTo = route('agent.dashboard');
+            $this->redirectTo = route('agent.dashboard',app()->getLocale());
             
         }else{
 
-            $this->redirectTo = route('user.dashboard');
+            $this->redirectTo = route('user.dashboard',app()->getLocale());
         }
 
         $this->middleware('guest');

@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.categories.index')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.categories.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -24,7 +24,7 @@
                     <h2>CREATE CATEGORIES</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.categories.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.categories.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group form-float">

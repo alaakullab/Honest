@@ -187,11 +187,11 @@
 
                     <img class="img-responsive thumbnail" src="{{Storage::url('property/'.$property->image)}}" alt="{{$property->title}}">
                     
-                    <a href="{{route('admin.properties.index')}}" class="btn btn-danger btn-lg waves-effect">
+                    <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg waves-effect">
                         <i class="material-icons left">arrow_back</i>
                         <span>BACK</span>
                     </a>
-                    <a href="{{route('admin.properties.edit',$property->slug)}}" class="btn btn-info btn-lg waves-effect">
+                    <a href="{{route('admin.properties.edit',[app()->getLocale(),$property->slug])}}" class="btn btn-info btn-lg waves-effect">
                         <i class="material-icons">edit</i>
                         <span>EDIT</span>
                     </a>

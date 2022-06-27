@@ -57,16 +57,16 @@
                                         </td>
     
                                         <td class="center">
-                                            <a href="{{route('property.show',$property->slug)}}" target="_blank" class="btn btn-small green waves-effect">
+                                            <a href="{{route('property.show',[app()->getLocale(),$property->slug])}}" target="_blank" class="btn btn-small green waves-effect">
                                                 <i class="material-icons">visibility</i>
                                             </a>
-                                            <a href="{{route('agent.properties.edit',$property->slug)}}" class="btn btn-small orange waves-effect">
+                                            <a href="{{route('agent.properties.edit',[app()->getLocale(),$property->slug])}}" class="btn btn-small orange waves-effect">
                                                 <i class="material-icons">edit</i>
                                             </a>
                                             <button type="button" class="btn btn-small deep-orange accent-3 waves-effect" onclick="deleteProperty({{$property->id}})">
                                                 <i class="material-icons">delete</i>
                                             </button>
-                                            <form action="{{route('agent.properties.destroy',$property->slug)}}" method="POST" id="del-property-{{$property->id}}" style="display:none;">
+                                            <form action="{{route('agent.properties.destroy',[app()->getLocale(),$property->slug])}}" method="POST" id="del-property-{{$property->id}}" style="display:none;">
                                                 @csrf
                                                 @method('DELETE')
                                             </form>

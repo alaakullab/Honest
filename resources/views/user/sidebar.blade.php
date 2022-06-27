@@ -10,26 +10,26 @@
             <h6 class="m-t-0"><small>{{ auth()->user()->email }}</small></h6>
         </li>
     
-        <a href="{{ route('user.dashboard') }}">
+        <a href="{{ route('user.dashboard',app()->getLocale()) }}">
             <li class="collection-item {{ Request::is('user/dashboard') ? 'active' : '' }}">
                 <i class="material-icons left">dashboard</i>
                 <span>Dashboard<span>
             </li>
         </a>
     
-        <a href="{{ route('user.profile') }}">
+        <a href="{{ route('user.profile',app()->getLocale()) }}">
             <li class="collection-item {{ Request::is('user/profile') ? 'active' : '' }}">
                 <i class="material-icons left">person</i>
                 <span>Profile</span>
             </li>
         </a>
-        <a href="{{ route('user.message') }}">
+        <a href="{{ route('user.message',app()->getLocale()) }}">
             <li class="collection-item {{ Request::is('user/message*') ? 'active' : '' }}">
                 <i class="material-icons left">mail</i>
                 <span>Messages</span>
             </li>
         </a>
-        <a href="{{ route('user.changepassword') }}">
+        <a href="{{ route('user.changepassword',app()->getLocale()) }}">
             <li class="collection-item {{ Request::is('user/changepassword') ? 'active' : '' }}">
                 <i class="material-icons left">lock</i>
                 <span>Change Password</span>

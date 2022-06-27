@@ -6,7 +6,7 @@
         <div class="row m-b-0">
             <div class="col s12">
 
-                <form action="{{ route('search')}} " method="GET">
+                <form action="{{ route('search',app()->getLocale())}} " method="GET">
 
                     <div class="searchbar">
                         <div class="input-field col s12 m3">
@@ -19,6 +19,7 @@
                                 <option value="" disabled selected>Choose Type</option>
                                 <option value="apartment">Apartment</option>
                                 <option value="house">House</option>
+                                <option value="chalet">Chalet</option>
                             </select>
                         </div>
 

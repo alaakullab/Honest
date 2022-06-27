@@ -42,7 +42,7 @@ class SliderController extends Controller
             if(!Storage::disk('public')->exists('slider')){
                 Storage::disk('public')->makeDirectory('slider');
             }
-            $slider = Image::make($image)->resize(1600, 480)->save();
+            $slider = Image::make($image)->resize(1600, 480)->stream();
             Storage::disk('public')->put('slider/'.$imagename, $slider);
         }else{
             $imagename = 'default.png';
@@ -55,7 +55,7 @@ class SliderController extends Controller
         $slider->save();
 
         Toastr::success('message', 'Slider created successfully.');
-        return redirect()->route('admin.sliders.index');
+        return redirect()->route('admin.sliders.index',app()->getLocale());
     }
 
 
@@ -87,7 +87,7 @@ class SliderController extends Controller
             if(Storage::disk('public')->exists('slider/'.$slider->image)){
                 Storage::disk('public')->delete('slider/'.$slider->image);
             }
-            $sliderimg = Image::make($image)->resize(1600, 480)->save();
+            $sliderimg = Image::make($image)->resize(1600, 480)->stream();
             Storage::disk('public')->put('slider/'.$imagename, $sliderimg);
         }else{
             $imagename = $slider->image;
@@ -99,7 +99,7 @@ class SliderController extends Controller
         $slider->save();
 
         Toastr::success('message', 'Slider updated successfully.');
-        return redirect()->route('admin.sliders.index');
+        return redirect()->route('admin.sliders.index',app()->getLocale());
     }
 
 

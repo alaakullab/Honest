@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.services.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.services.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -49,13 +49,13 @@
                                     <td>{{$service->service_order}}</td>
 
                                     <td class="text-center">
-                                        <a href="{{route('admin.services.edit',$service->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.services.edit',[app()->getLocale(),$service->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteService({{$service->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.services.destroy',$service->id)}}" method="POST" id="del-service-{{$service->id}}" style="display:none;">
+                                        <form action="{{route('admin.services.destroy',[app()->getLocale(),$service->id])}}" method="POST" id="del-service-{{$service->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

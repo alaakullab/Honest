@@ -43,21 +43,21 @@
                                     <td>{{ str_limit($message->message,40,'...') }}</td>
                                     <td>
                                         @if($message->status == 0)
-                                            <a href="{{route('admin.message.read',$message->id)}}" class="btn btn-warning btn-sm waves-effect">
+                                            <a href="{{route('admin.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-warning btn-sm waves-effect">
                                                 <i class="material-icons">local_library</i>
                                             </a>
                                         @else 
-                                            <a href="{{route('admin.message.read',$message->id)}}" class="btn btn-success btn-sm waves-effect">
+                                            <a href="{{route('admin.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-success btn-sm waves-effect">
                                                 <i class="material-icons">done</i>
                                             </a>
                                         @endif
-                                        <a href="{{route('admin.message.replay',$message->id)}}" class="btn btn-indigo btn-sm waves-effect">
+                                        <a href="{{route('admin.message.replay',[app()->getLocale(),$message->id])}}" class="btn btn-indigo btn-sm waves-effect">
                                             <i class="material-icons">replay</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteMessage({{$message->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.messages.destroy',$message->id)}}" method="POST" id="del-message-{{$message->id}}" style="display:none;">
+                                        <form action="{{route('admin.messages.destroy',[app()->getLocale(),$message->id])}}" method="POST" id="del-message-{{$message->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

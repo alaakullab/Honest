@@ -23,11 +23,11 @@ class RedirectIfAuthenticated
 
         } elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 2) {
 
-            return redirect()->route('agent.dashboard');
+            return redirect()->route('agent.dashboard',app()->getLocale());
 
         } elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 3) {
 
-            return redirect()->route('user.dashboard');
+            return redirect()->route('user.dashboard',app()->getLocale());
 
         } 
         else {

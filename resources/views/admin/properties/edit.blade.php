@@ -142,6 +142,7 @@
                                 <option value="">-- Please select --</option>
                                 <option value="house" {{ $property->type=='house' ? 'selected' : '' }}>House</option>
                                 <option value="apartment" {{ $property->type=='apartment' ? 'selected' : '' }}>Apartment</option>
+                                <option value="chalet" <?php echo e($property->type=='chalet' ? 'selected' : ''); ?>>Chalet</option>
                             </select>
                         </div>
                     </div>
@@ -162,13 +163,13 @@
                         <h5>Google Map</h5>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="location_latitude" class="form-control" value="{{$property->location_latitude}}" required/>
+                                <input type="text" name="location_latitude" class="form-control" value="{{$property->location_latitude}}" />
                                 <label class="form-label">Latitude</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" name="location_longitude" class="form-control" value="{{$property->location_longitude}}" required/>
+                                <input type="text" name="location_longitude" class="form-control" value="{{$property->location_longitude}}" />
                                 <label class="form-label">Longitude</label>
                             </div>
                         </div>

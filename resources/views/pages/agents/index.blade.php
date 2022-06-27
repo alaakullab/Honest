@@ -18,7 +18,7 @@
                         <div class="card-panel center card-agent">
                             <span class="card-image-bg" style="background-image:url({{Storage::url('users/'.$agent->image)}});"></span>
                             <h5 class="m-b-0">
-                                <a href="{{ route('agents.show',$agent->id) }}" class="truncate">{{ $agent->name }}</a>
+                                <a href="{{ route('agents.show',[app()->getLocale(),$agent->id]) }}" class="truncate">{{ $agent->name }}</a>
                             </h5>
                             <h6 class="email">{{ $agent->email }}</h6>
                             <p class="about">{{ str_limit($agent->about,50) }}</p>

@@ -9,7 +9,7 @@
                 <h4 class="center indigo-text uppercase p-t-30">{{ __('Login') }}</h4>
 
                 <div class="p-20">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login',app()->getLocale()) }}">
                         @csrf
 
                         <div class="row">
@@ -51,7 +51,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="indigo-text p-l-15" href="{{ route('password.request') }}">
+                                <a class="indigo-text p-l-15" href="{{ route('password.request',app()->getLocale()) }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>

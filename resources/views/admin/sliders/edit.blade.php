@@ -16,14 +16,14 @@
                 <div class="header bg-indigo">
                     <h2>
                         EDIT SLIDER
-                        <a href="{{route('admin.sliders.index')}}" class="waves-effect waves-light btn right headerightbtn">
+                        <a href="{{route('admin.sliders.index',app()->getLocale())}}" class="waves-effect waves-light btn right headerightbtn">
                             <i class="material-icons left">arrow_back</i>
                             <span>BACK</span>
                         </a>
                     </h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.sliders.update',$slider->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.sliders.update',[app()->getLocale(),$slider->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 

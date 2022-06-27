@@ -134,7 +134,7 @@ class PropertyController extends Controller
         }
 
         Toastr::success('message', 'Property created successfully.');
-        return redirect()->route('agent.properties.index');
+        return redirect()->route('agent.properties.index',app()->getLocale());
     }
 
 
@@ -259,7 +259,7 @@ class PropertyController extends Controller
         }
 
         Toastr::success('message', 'Property updated successfully.');
-        return redirect()->route('agent.properties.index');
+        return redirect()->route('agent.properties.index',app()->getLocale());
     }
 
     public function destroy(Property $property)

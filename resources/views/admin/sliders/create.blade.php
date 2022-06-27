@@ -16,7 +16,7 @@
                 <div class="header bg-indigo">
                     <h2>
                         CREATE SLIDER
-                        <a href="{{route('admin.sliders.index')}}" class="waves-effect waves-light btn right headerightbtn">
+                        <a href="{{route('admin.sliders.index',app()->getLocale())}}" class="waves-effect waves-light btn right headerightbtn">
                             <i class="material-icons left">arrow_back</i>
                             <span>BACK</span>
                         </a>

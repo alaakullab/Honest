@@ -22,7 +22,7 @@
                         @foreach($albums as $album)
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="card mb0">
-                                <a href="{{ route('admin.album.gallery',$album->id) }}">
+                                <a href="{{ route('admin.album.gallery',[app()->getLocale(),$album->id]) }}">
                                     <div class="header bg-indigo">
                                         <h2>{{$album->name}}</h2>
                                     </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="body">
 
-                    <form action="{{route('admin.album.store')}}" method="POST">
+                    <form action="{{route('admin.album.store',app()->getLocale())}}" method="POST">
                         @csrf
                         <div class="form-group form-float">
                             <div class="form-line">
