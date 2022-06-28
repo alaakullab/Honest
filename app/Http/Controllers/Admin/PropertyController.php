@@ -35,7 +35,7 @@ class PropertyController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'title'     => 'required|unique:properties|max:255',
@@ -139,7 +139,7 @@ class PropertyController extends Controller
     }
 
 
-    public function show(Property $property)
+    public function show($locale,Property $property)
     {
         $property = Property::withCount('comments')->find($property->id);
 
@@ -149,7 +149,7 @@ class PropertyController extends Controller
     }
 
 
-    public function edit(Property $property)
+    public function edit($locale,Property $property)
     {
         $features = Feature::all();
         $property = Property::find($property->id);
@@ -160,7 +160,7 @@ class PropertyController extends Controller
     }
 
 
-    public function update(Request $request, $property)
+    public function update($locale,Request $request, $property)
     {
         $request->validate([
             'title'     => 'required|max:255',
@@ -276,7 +276,7 @@ class PropertyController extends Controller
     }
 
  
-    public function destroy(Property $property)
+    public function destroy($locale,Property $property)
     {
         $property = Property::find($property->id);
 

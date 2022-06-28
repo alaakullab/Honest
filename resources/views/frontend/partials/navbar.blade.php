@@ -25,19 +25,19 @@
                     </li>
 
                     <li class="{{ Request::is('agents*') ? 'active' : '' }}">
-                        <a href="{{ route('agents',app()->getLocale()) }}">Agents</a>
+                        <a href="{{ route('agents',app()->getLocale()) }}">{{__('app.agents')}}</a>
                     </li>
 
                     <li class="{{ Request::is('gallery') ? 'active' : '' }}">
-                        <a href="{{ route('gallery',app()->getLocale()) }}">Gallery</a>
+                        <a href="{{ route('gallery',app()->getLocale()) }}">{{__('app.gallery')}}</a>
                     </li>
 
                     <li class="{{ Request::is('blog*') ? 'active' : '' }}">
-                        <a href="{{ route('blog',app()->getLocale()) }}">Blog</a>
+                        <a href="{{ route('blog',app()->getLocale()) }}">{{__('app.blog')}}</a>
                     </li>
 
                     <li class="{{ Request::is('contact') ? 'active' : '' }}">
-                        <a href="{{ route('contact',app()->getLocale()) }}">Contact</a>
+                        <a href="{{ route('contact',app()->getLocale()) }}">{{__('app.contact')}}</a>
                     </li>
 
                     @guest
@@ -55,15 +55,15 @@
                             <li>
                                 @if(Auth::user()->role->id == 1)
                                     <a href="{{ route('admin.dashboard',app()->getLocale()) }}" class="indigo-text">
-                                        <i class="material-icons">person</i>Profile
+                                        <i class="material-icons">person</i>{{__('app.profile')}}
                                     </a>
                                 @elseif(Auth::user()->role->id == 2)
                                     <a href="{{ route('agent.dashboard',app()->getLocale()) }}" class="indigo-text">
-                                        <i class="material-icons">person</i>Profile
+                                        <i class="material-icons">person</i>{{__('app.profile')}}
                                     </a>
                                 @elseif(Auth::user()->role->id == 3)
                                     <a href="{{ route('user.dashboard',app()->getLocale()) }}" class="indigo-text">
-                                        <i class="material-icons">person</i>Profile
+                                        <i class="material-icons">person</i>{{__('app.profile')}}
                                     </a>
                                 @endif
                             </li>
@@ -71,7 +71,7 @@
                                 <a class="dropdownitem indigo-text" href="{{ route('logout',app()->getLocale()) }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="material-icons">power_settings_new</i>{{ __('Logout') }}
+                                    <i class="material-icons">power_settings_new</i>{{ __('app.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout',app()->getLocale()) }}" method="POST" style="display: none;">
@@ -89,27 +89,27 @@
     
     <ul class="sidenav" id="mobile-demo">
         <li class="{{ Request::is('/') ? 'active' : '' }}">
-            <a href="{{ route('home',app()->getLocale()) }}">Home</a>
+            <a href="{{ route('home',app()->getLocale()) }}">{{__('app.home')}}</a>
         </li>
 
         <li class="{{ Request::is('property*') ? 'active' : '' }}">
-            <a href="{{ route('property',app()->getLocale()) }}">Properties</a>
+            <a href="{{ route('property',app()->getLocale()) }}">{{__('app.properties')}}</a>
         </li>
 
         <li class="{{ Request::is('agents*') ? 'active' : '' }}">
-            <a href="{{ route('agents',app()->getLocale()) }}">Agents</a>
+            <a href="{{ route('agents',app()->getLocale()) }}">{{__('app.agents')}}</a>
         </li>
 
         <li class="{{ Request::is('gallery') ? 'active' : '' }}">
-            <a href="{{ route('gallery',app()->getLocale()) }}">Gallery</a>
+            <a href="{{ route('gallery',app()->getLocale()) }}">{{__('app.gallery')}}</a>
         </li>
 
         <li class="{{ Request::is('blog*') ? 'active' : '' }}">
-            <a href="{{ route('blog',app()->getLocale()) }}">Blog</a>
+            <a href="{{ route('blog',app()->getLocale()) }}">{{__('app.blog')}}</a>
         </li>
 
         <li class="{{ Request::is('contact') ? 'active' : '' }}">
-            <a href="{{ route('contact',app()->getLocale()) }}">Contact</a>
+            <a href="{{ route('contact',app()->getLocale()) }}">{{__('app.contact')}}</a>
         </li>
     </ul>
 

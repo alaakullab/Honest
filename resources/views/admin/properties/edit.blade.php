@@ -15,7 +15,7 @@
     <div class="block-header"></div>
 
     <div class="row clearfix">
-        <form action="{{route('admin.properties.update',$property->slug)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.properties.update',[app()->getLocale(),$property->slug])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
@@ -224,7 +224,7 @@
                     </div>
 
                     {{-- BUTTON --}}
-                    <a href="{{route('admin.properties.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
                         <span>BACK</span>
                     </a>
@@ -261,7 +261,7 @@
             e.preventDefault();
             var id = $(this).data('id');
             var image = $('#gallery-'+id+' img').attr('alt');
-            $.post("{{route('admin.gallery-delete')}}",{id:id,image:image},function(data){
+            $.post("{{route('admin.gallery-delete',app()->getLocale())}}",{id:id,image:image},function(data){
                 if(data.msg == true){
                     $('#gallery-'+id).remove();
                 }
