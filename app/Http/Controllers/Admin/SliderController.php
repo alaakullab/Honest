@@ -59,7 +59,7 @@ class SliderController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit($locale,$id)
     {
         $slider = Slider::find($id);
 
@@ -67,7 +67,7 @@ class SliderController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update($locale,Request $request, $id)
     {
         $request->validate([
             'title' => 'required|max:255',
@@ -103,7 +103,7 @@ class SliderController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($locale,$id)
     {
         $slider = Slider::find($id);
 

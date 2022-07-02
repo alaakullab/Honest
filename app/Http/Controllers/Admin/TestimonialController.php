@@ -25,7 +25,7 @@ class TestimonialController extends Controller
         return view('admin.testimonials.create');
     }
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -60,7 +60,7 @@ class TestimonialController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit($locale,$id)
     {
         $testimonial = Testimonial::find($id);
 
@@ -68,7 +68,7 @@ class TestimonialController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update($locale,Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
@@ -105,7 +105,7 @@ class TestimonialController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($locale,$id)
     {
         $testimonial = Testimonial::find($id);
 

@@ -67,13 +67,13 @@ class CategoryController extends Controller
     }
 
 
-    public function show($id)
+    public function show($locale,$id)
     {
         //
     }
 
 
-    public function edit($id)
+    public function edit($locale,$id)
     {
         $category = Category::find($id);
 
@@ -81,7 +81,7 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update($locale,Request $request, $id)
     {
         $request->validate([
             'name'  => 'required|max:255',
@@ -127,7 +127,7 @@ class CategoryController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($locale,$id)
     {
         $category = Category::find($id);
 

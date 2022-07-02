@@ -18,14 +18,14 @@
                 <div class="header bg-indigo">
                     <h2>
                         GENERAL SETTING
-                        <a href="{{route('admin.profile')}}" class="btn waves-effect waves-light right headerightbtn">
+                        <a href="{{route('admin.profile',app()->getLocale())}}" class="btn waves-effect waves-light right headerightbtn">
                             <i class="material-icons left">person</i>
                             <span>PROFILE </span>
                         </a>
                     </h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.settings.store')}}" method="POST">
+                    <form action="{{route('admin.settings.store',app()->getLocale())}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <div class="form-line">

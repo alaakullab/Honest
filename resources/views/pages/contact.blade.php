@@ -12,7 +12,7 @@
 
                 <div class="col s12 m8">
                     <div class="contact-content">
-                        <h4 class="contact-title">Contact Us</h4>
+                        <h4 class="contact-title">{{__('app.contact us')}}</h4>
 
                         <form id="contact-us" action="" method="POST">
                             @csrf
@@ -26,14 +26,14 @@
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">person</i>
                                     <input id="name" name="name" type="text" class="validate" value="{{ auth()->user()->name }}" readonly>
-                                    <label for="name">Name</label>
+                                    <label for="name">{{__('app.Name')}}</label>
                                 </div>
                             @endauth
                             @guest
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">person</i>
                                     <input id="name" name="name" type="text" class="validate">
-                                    <label for="name">Name</label>
+                                    <label for="name">{{__('app.Name')}}</label>
                                 </div>
                             @endguest
 
@@ -41,31 +41,31 @@
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">mail</i>
                                     <input id="email" name="email" type="email" class="validate" value="{{ auth()->user()->email }}" readonly>
-                                    <label for="email">Email</label>
+                                    <label for="email">{{__('app.Email')}}</label>
                                 </div>
                             @endauth
                             @guest
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">mail</i>
                                     <input id="email" name="email" type="email" class="validate">
-                                    <label for="email">Email</label>
+                                    <label for="email">{{__('app.Email')}}</label>
                                 </div>
                             @endguest
 
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">phone</i>
                                 <input id="phone" name="phone" type="number" class="validate">
-                                <label for="phone">Phone</label>
+                                <label for="phone">{{__('app.Phone')}}</label>
                             </div>
 
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">mode_edit</i>
                                 <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                                <label for="message">Message</label>
+                                <label for="message">{{__('app.Message')}}</label>
                             </div>
                             
                             <button id="msgsubmitbtn" class="btn waves-effect waves-light indigo darken-4 btn-large" type="submit">
-                                <span>SEND</span>
+                                <span>{{__('app.send')}}</span>
                                 <i class="material-icons right">send</i>
                             </button>
 
@@ -78,21 +78,21 @@
                     <div class="contact-sidebar">
                         <div class="m-t-30">
                             <i class="material-icons left">call</i>
-                            <h6 class="uppercase">Call us Now</h6>
+                            <h6 class="uppercase">{{__('app.Call us Now')}}</h6>
                             @if(isset($contactsettings[0]) && $contactsettings[0]['phone'])
                                 <h6 class="bold m-l-40">{{ $contactsettings[0]['phone'] }}</h6>
                             @endif
                         </div>
                         <div class="m-t-30">
                             <i class="material-icons left">mail</i>
-                            <h6 class="uppercase">Email Address</h6>
+                            <h6 class="uppercase">{{__('app.Email Address')}}</h6>
                             @if(isset($contactsettings[0]) && $contactsettings[0]['email'])
                                 <h6 class="bold m-l-40">{{ $contactsettings[0]['email'] }}</h6>
                             @endif
                         </div>
                         <div class="m-t-30">
                             <i class="material-icons left">map</i>
-                            <h6 class="uppercase">Address</h6>
+                            <h6 class="uppercase">{{__('app.Address')}}</h6>
                             @if(isset($contactsettings[0]) && $contactsettings[0]['address'])
                                 <h6 class="bold m-l-40">{!! $contactsettings[0]['address'] !!}</h6>
                             @endif
@@ -124,7 +124,7 @@
                     data: data,
                     beforeSend: function() {
                         $(btn).addClass('disabled');
-                        $(btn).empty().append('<span>LOADING...</span><i class="material-icons right">rotate_right</i>');
+                        $(btn).empty().append('<span>{{__('app.LOADING...')}}</span><i class="material-icons right">rotate_right</i>');
                     },
                     success: function(data) {
                         if (data.message) {
@@ -132,12 +132,12 @@
                         }
                     },
                     error: function(xhr) {
-                        M.toast({html: 'ERROR: Failed to send message!', classes: 'red darken-4'})
+                        M.toast({html: '{{__('app.ERROR: Failed to send message!')}}', classes: 'red darken-4'})
                     },
                     complete: function() {
                         $('form#contact-us')[0].reset();
                         $(btn).removeClass('disabled');
-                        $(btn).empty().append('<span>SEND</span><i class="material-icons right">send</i>');
+                        $(btn).empty().append('<span>{{__('app.send')}}</span><i class="material-icons right">send</i>');
                     },
                     dataType: 'json'
                 });

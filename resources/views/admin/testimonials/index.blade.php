@@ -12,9 +12,9 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.testimonials.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.testimonials.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
-            <span>CREATE </span>
+            <span>{{__('app.Create')}}</span>
         </a>
     </div>
 
@@ -22,18 +22,18 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>TESTIMONIAL LIST</h2>
+                    <h2>{{__('app.TESTIMONIAL LIST')}}</h2>
                 </div>
                 <div class="body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Testimonial</th>
-                                    <th width="100px">Action</th>
+                                    <th>{{__('app.SL.')}}</th>
+                                    <th>{{__('app.Image')}}</th>
+                                    <th>{{__('app.Name')}}</th>
+                                    <th>{{__('app.Testimonial')}}</th>
+                                    <th width="100px">{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,13 +48,13 @@
                                     <td>{{$testimonial->name}}</td>
                                     <td>{{$testimonial->testimonial}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.testimonials.edit',$testimonial->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.testimonials.edit',[app()->getLocale(),$testimonial->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteTestimonial({{$testimonial->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.testimonials.destroy',$testimonial->id)}}" method="POST" id="del-testimonial-{{$testimonial->id}}" style="display:none;">
+                                        <form action="{{route('admin.testimonials.destroy',[app()->getLocale(),$testimonial->id])}}" method="POST" id="del-testimonial-{{$testimonial->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -98,14 +98,14 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: '{{__('app.Yes, delete it!')}}'
             }).then((result) => {
                 if (result.value) {
                     document.getElementById('del-testimonial-'+id).submit();
                     swal(
-                    'Deleted!',
-                    'Testimonial has been deleted.',
-                    'success'
+                    '{{__('app.Yes, delete it!')}}',
+                    '{{__('app.Testimonial has been deleted.')}}',
+                    '{{__('app.success')}}'
                     )
                 }
             })

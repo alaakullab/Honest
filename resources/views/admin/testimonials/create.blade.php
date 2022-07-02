@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.testimonials.index')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.testimonials.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -24,20 +24,20 @@
                     <h2>CREATE TESTIMONIAL</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.testimonials.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.testimonials.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group form-float">
+                            <label class="form-label">{{__('app.Name')}}</label>
                             <div class="form-line">
                                 <input type="text" name="name" class="form-control">
-                                <label class="form-label">Name</label>
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <label class="form-label">{{__('app.Testimonial')}}</label>
                             <div class="form-line">
                                 <textarea name="testimonial" rows="4" class="form-control no-resize"></textarea>
-                                <label class="form-label">Testimonial</label>
                             </div>
                         </div>
 

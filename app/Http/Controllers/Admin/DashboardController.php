@@ -50,7 +50,7 @@ class DashboardController extends Controller
         return view('admin.settings.setting',compact('settings'));
     }
 
-    public function settingStore(Request $request)
+    public function settingStore($locale,Request $request)
     {
 
         $this->validate($request, [
@@ -93,7 +93,7 @@ class DashboardController extends Controller
 
     }
 
-    public function changePasswordUpdate(Request $request)
+    public function changePasswordUpdate($locale,Request $request)
     {
         if (!(Hash::check($request->get('currentpassword'), Auth::user()->password))) {
 
@@ -179,21 +179,21 @@ class DashboardController extends Controller
         return view('admin.settings.messages.index',compact('messages'));
     }
 
-    public function messageRead($id)
+    public function messageRead($locale,$id)
     {
-        $message = Message::findOrFail($id);
 
+        $message = Message::findOrFail($id);
         return view('admin.settings.messages.readmessage',compact('message'));
     }
 
-    public function messageReplay($id)
+    public function messageReplay($locale,$id)
     {
         $message = Message::findOrFail($id);
 
         return view('admin.settings.messages.replaymessage',compact('message'));
     }
 
-    public function messageSend(Request $request)
+    public function messageSend($locale,Request $request)
     {
         $request->validate([
             'agent_id'  => 'required',
@@ -211,7 +211,7 @@ class DashboardController extends Controller
 
     }
 
-    public function messageReadUnread(Request $request)
+    public function messageReadUnread($locale,Request $request)
     {
         $status = $request->status;
         $msgid  = $request->messageid;
@@ -229,7 +229,7 @@ class DashboardController extends Controller
         return redirect()->route('admin.message');
     }
 
-    public function messageDelete($id)
+    public function messageDelete($locale,$id)
     {
         $message = Message::findOrFail($id);
         $message->delete();
@@ -238,7 +238,7 @@ class DashboardController extends Controller
         return back();
     }
 
-    public function contactMail(Request $request)
+    public function contactMail($locale,Request $request)
     {
         $message  = $request->message;
         $name     = $request->name;

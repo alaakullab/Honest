@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.categories.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.categories.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -60,13 +60,13 @@
                                     <td>{{$category->posts->count()}}</td>
                                     <td>{{$category->slug}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.categories.edit',$category->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.categories.edit',[app()->getLocale(),$category->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteCategory({{$category->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.categories.destroy',$category->id)}}" method="POST" id="del-category-{{$category->id}}" style="display:none;">
+                                        <form action="{{route('admin.categories.destroy',[app()->getLocale(),$category->id])}}" method="POST" id="del-category-{{$category->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

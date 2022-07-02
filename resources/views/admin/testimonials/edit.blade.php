@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.testimonials.index')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.testimonials.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -24,12 +24,12 @@
                     <h2>EDIT TESTIMONIAL</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.testimonials.update',$testimonial->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.testimonials.update',[app()->getLocale(),$testimonial->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group form-float">
-                            <label class="form-label">Name</label>
+                            <label class="form-label">{{__('app.Name')}}</label>
                             <div class="form-line">
                                 <input type="text" name="name" class="form-control" value="{{$testimonial->name}}">
                             </div>
@@ -44,12 +44,12 @@
                             <input type="file" name="image" id="testimonial-image-input-edit" style="display:none;">
                             <button type="button" class="btn bg-grey btn-sm waves-effect m-t-15" id="testimonial-image-btn-edit">
                                 <i class="material-icons">image</i>
-                                <span>UPLOAD IMAGE</span>
+                                <span>{{__('app.UPLOAD IMAGE')}}</span>
                             </button>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Testimonial</label>
+                            <label class="form-label">{{__('app.Testimonial')}}</label>
                             <div class="form-line">
                                 <textarea name="testimonial" rows="4" class="form-control no-resize">{{$testimonial->testimonial}}</textarea>
                             </div>

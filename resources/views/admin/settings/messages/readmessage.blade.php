@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.message')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.message',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -31,12 +31,12 @@
                     <p>{!! $message->message !!}</p>
                     <hr>
 
-                    <a href="{{route('admin.message.replay',$message->id)}}" class="btn btn-indigo btn-sm waves-effect">
+                    <a href="{{route('admin.message.replay',[app()->getLocale(),$message->id])}}" class="btn btn-indigo btn-sm waves-effect">
                         <i class="material-icons">replay</i>
                         <span>Replay</span>
                     </a>
 
-                    <form class="right" action="{{route('admin.message.readunread')}}" method="POST">
+                    <form class="right" action="{{route('admin.message.readunread',app()->getLocale())}}" method="POST">
                         @csrf
                         <input type="hidden" name="status" value="{{ $message->status }}">
                         <input type="hidden" name="messageid" value="{{ $message->id }}">

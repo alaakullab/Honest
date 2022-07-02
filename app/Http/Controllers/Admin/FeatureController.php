@@ -25,7 +25,7 @@ class FeatureController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'name' => 'required|unique:features|max:255'
@@ -37,11 +37,11 @@ class FeatureController extends Controller
         $tag->save();
 
         Toastr::success('message', 'Feature created successfully.');
-        return redirect()->route('admin.features.index');
+        return redirect()->route('admin.features.index',app()->getLocale());
     }
 
 
-    public function edit($id)
+    public function edit($locale,$id)
     {
         $feature = Feature::find($id);
 
@@ -49,7 +49,7 @@ class FeatureController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update($locale,Request $request, $id)
     {
         $request->validate([
             'name' => 'required|max:255'
@@ -61,15 +61,15 @@ class FeatureController extends Controller
         $feature->save();
 
         Toastr::success('message', 'Feature updated successfully.');
-        return redirect()->route('admin.features.index');
+        return redirect()->route('admin.features.index',app()->getLocale());
     }
 
 
-    public function destroy($id)
+    public function destroy($locale,$id)
     {
         $feature = Feature::find($id);
         $feature->delete();
-        $feature->features()->detach();
+        $feature->properties()->detach();
 
         Toastr::success('message', 'Feature deleted successfully.');
         return back();

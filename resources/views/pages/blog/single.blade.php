@@ -120,7 +120,7 @@
                             @guest 
                                 <div class="comment-login">
                                     <h6>Please Login to comment</h6>
-                                    <a href="{{ route('login') }}" class="btn indigo">Login</a>
+                                    <a href="{{ route('login',app()->getLocale()) }}" class="btn indigo">Login</a>
                                 </div>
                             @endguest
                             

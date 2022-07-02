@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check() && Auth::user()->role->id == 1) {
 
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.dashboard',app()->getLocale());
 
         } elseif (Auth::guard($guard)->check() && Auth::user()->role->id == 2) {
 

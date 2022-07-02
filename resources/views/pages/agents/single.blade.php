@@ -27,7 +27,7 @@
                         </div>
                     </div>
 
-                    <h5 class="uppercase">Property List of {{ $agent->name }}</h5>
+                    <h5 class="uppercase">{{__('app.Property List of')}} {{ $agent->name }}</h5>
 
                     {{-- AGENT PROPERTIES --}}
                     @foreach($properties as $property)
@@ -84,7 +84,7 @@
                         <div>
                             <ul class="collection with-header m-t-0">
                                 <li class="collection-header grey lighten-4">
-                                    <h5 class="m-0">Contact with Agent</h5>
+                                    <h5 class="m-0">{{__('app.Contact with Agent')}}</h5>
                                 </li>
                                 <li class="collection agent-message">
                                     <form class="agent-message-box" action="" method="POST">
@@ -93,20 +93,20 @@
                                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                                             
                                         <div class="box">
-                                            <input type="text" name="name" placeholder="Your Name">
+                                            <input type="text" name="name" placeholder="{{__('app.Your Name')}}">
                                         </div>
                                         <div class="box">
-                                            <input type="email" name="email" placeholder="Your Email">
+                                            <input type="email" name="email" placeholder="{{__('app.Your Email')}}">
                                         </div>
                                         <div class="box">
-                                            <input type="number" name="phone" placeholder="Your Phone">
+                                            <input type="number" name="phone" placeholder="{{__('app.Your Phone')}}">
                                         </div>
                                         <div class="box">
-                                            <textarea name="message" placeholder="Your Msssage"></textarea>
+                                            <textarea name="message" placeholder="{{__('app.Your Message')}}"></textarea>
                                         </div>
                                         <div class="box">
                                             <button id="msgsubmitbtn" class="btn waves-effect waves-light w100 indigo" type="submit">
-                                                SEND
+                                                {{__('app.send')}}
                                                 <i class="material-icons left">send</i>
                                             </button>
                                         </div>

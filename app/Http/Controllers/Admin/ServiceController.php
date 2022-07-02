@@ -24,7 +24,7 @@ class ServiceController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'title'         => 'required',
@@ -45,7 +45,7 @@ class ServiceController extends Controller
     }
 
 
-    public function edit(Service $service)
+    public function edit($locale,Service $service)
     {
         $service = Service::findOrFail($service->id);
 
@@ -53,7 +53,7 @@ class ServiceController extends Controller
     }
 
 
-    public function update(Request $request, Service $service)
+    public function update($locale,Request $request, Service $service)
     {
         $request->validate([
             'title'         => 'required',
@@ -74,7 +74,7 @@ class ServiceController extends Controller
     }
 
 
-    public function destroy(Service $service)
+    public function destroy($locale,Service $service)
     {
         $service = Service::findOrFail($service->id);
         $service->delete();

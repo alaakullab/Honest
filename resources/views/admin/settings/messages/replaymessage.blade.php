@@ -11,7 +11,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.message')}}" class="waves-effect waves-light btn btn-danger right m-b-15">
+        <a href="{{route('admin.message',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
             <span>BACK</span>
         </a>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="body">
                     @if($message->user_id)
-                        <form action="{{ route('admin.message.send') }}" method="POST">
+                        <form action="{{ route('admin.message.send',app()->getLocale()) }}" method="POST">
                             @csrf
 
                             <input type="hidden" name="agent_id" value="{{ $message->user_id }}">
@@ -59,7 +59,7 @@
 
                     @else 
                         {{-- MAIL FORM --}}
-                        <form action="{{ route('admin.message.mail') }}" method="POST">
+                        <form action="{{ route('admin.message.mail',app()->getLocale()) }}" method="POST">
                             @csrf
                             <input type="hidden" name="name" value="{{ $message->name }}">
                             <input type="hidden" name="mailfrom" value="{{ auth()->user()->email }}">

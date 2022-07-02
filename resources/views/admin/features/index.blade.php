@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.features.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.features.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -50,13 +50,13 @@
                                     <td>{{$feature->name}}</td>
                                     <td>{{$feature->slug}}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.features.edit',$feature->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.features.edit',[app()->getLocale(),$feature->id])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteFeature({{$feature->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.features.destroy',$feature->id)}}" method="POST" id="del-feature-{{$feature->id}}" style="display:none;">
+                                        <form action="{{route('admin.features.destroy',[app()->getLocale(),$feature->id])}}" method="POST" id="del-feature-{{$feature->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
