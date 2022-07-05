@@ -21,74 +21,74 @@
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>Edit PROPERTY</h2>
+                    <h2>{{__('app.Edit PROPERTY')}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Property Title')}}</label>
                         <div class="form-line">
                             <input type="text" name="title" class="form-control" value="{{$property->title}}">
-                            <label class="form-label">Property Title</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Price')}}</label>
                         <div class="form-line">
                             <input type="number" name="price" class="form-control" value="{{$property->price}}" required>
-                            <label class="form-label">Price</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Bedroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bedroom" value="{{$property->bedroom}}" required>
-                            <label class="form-label">Bedroom</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Bathroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bathroom" value="{{$property->bathroom}}" required>
-                            <label class="form-label">Bathroom</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.City')}}</label>
                         <div class="form-line">
                             <input type="text" class="form-control" name="city" value="{{$property->city}}" required>
-                            <label class="form-label">City</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Address')}}</label>
                         <div class="form-line">
                             <input type="text" class="form-control" name="address" value="{{$property->address}}" required>
-                            <label class="form-label">Address</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.area')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="area" value="{{$property->area}}" required>
-                            <label class="form-label">Area</label>
                         </div>
-                        <div class="help-info">Square Feet</div>
+                        <div class="help-info">{{__('app.square meter')}}</div>
                     </div>
 
                     <div class="form-group">
                         <input type="checkbox" id="featured" name="featured" class="filled-in" value="1" {{ $property->featured ? 'checked' : '' }}/>
-                        <label for="featured">Featured</label>
+                        <label for="featured">{{__('app.featured')}}</label>
                     </div>
 
                     <hr>
                     <div class="form-group">
-                        <label for="tinymce">Description</label>
+                        <label for="tinymce">{{__('app.Description')}}</label>
                         <textarea name="description" id="tinymce">{{$property->description}}</textarea>
                     </div>
 
                     <hr>
                     <div class="form-group">
-                        <label for="tinymce-nearby">Nearby</label>
+                        <label for="tinymce-nearby">{{__('app.Nearby')}}</label>
                         <textarea name="nearby" id="tinymce-nearby">{{$property->nearby}}</textarea>
                     </div>
 

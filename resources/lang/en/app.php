@@ -84,5 +84,6 @@ return [
     'Popular Posts' => 'Blog Posts',
     'Categories' => 'Categories',
     'Archives' => 'Archives',
+    'Description' => 'Description',
 
 ];

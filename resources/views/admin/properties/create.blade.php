@@ -20,74 +20,74 @@
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>CREATE PROPERTY</h2>
+                    <h2>{{__('app.CREATE PROPERTY')}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Property Title')}}</label>
                         <div class="form-line">
                             <input type="text" name="title" class="form-control" value="{{old('title')}}">
-                            <label class="form-label">Property Title</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Price')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="price" required>
-                            <label class="form-label">Price</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.bedroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bedroom" required>
-                            <label class="form-label">Bedroom</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.bathroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bathroom" required>
-                            <label class="form-label">Bathroom</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.City')}}</label>
                         <div class="form-line">
                             <input type="text" class="form-control" name="city" required>
-                            <label class="form-label">City</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Address')}}</label>
                         <div class="form-line">
                             <input type="text" class="form-control" name="address" required>
-                            <label class="form-label">Address</label>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.area')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="area" required>
-                            <label class="form-label">Area</label>
                         </div>
-                        <div class="help-info">Square Feet</div>
+                        <div class="help-info">{{__('app.square meter')}}</div>
                     </div>
 
                     <div class="form-group">
                         <input type="checkbox" id="featured" name="featured" class="filled-in" value="1" />
-                        <label for="featured">Featured</label>
+                        <label for="featured">{{__('app.featured')}}</label>
                     </div>
 
                     <hr>
                     <div class="form-group">
-                        <label for="tinymce">Description</label>
+                        <label for="tinymce">{{__('app.Description')}}</label>
                         <textarea name="description" id="tinymce">{{old('description')}}</textarea>
                     </div>
 
                     <hr>
                     <div class="form-group">
-                        <label for="tinymce-nearby">Nearby</label>
+                        <label for="tinymce-nearby">{{__('app.Nearby')}}</label>
                         <textarea name="nearby" id="tinymce-nearby">{{old('nearby')}}</textarea>
                     </div>
 
@@ -95,7 +95,7 @@
             </div>
             <div class="card">
                 <div class="header">
-                    <h2>GALLERY IMAGE</h2>
+                    <h2>{{__('app.GALLERY IMAGE')}}</h2>
                 </div>
                 <div class="body">
                     <input id="input-id" type="file" name="gallaryimage[]" class="file" data-preview-file-type="text" multiple>
@@ -105,34 +105,34 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>SELECT</h2>
+                    <h2>{{__('app.SELECT')}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('purpose') ? 'focused error' : ''}}">
-                            <label>Select Purpose</label>
+                            <label>{{__('app.Select Purpose')}}</label>
                             <select name="purpose" class="form-control show-tick">
-                                <option value="">-- Please select --</option>
-                                <option value="sale">Sale</option>
-                                <option value="rent">Rent</option>
+                                <option value="">-- {{__('app.Please select')}} --</option>
+                                <option value="sale">{{__('app.Sale')}}</option>
+                                <option value="rent">{{__('app.Rent')}}</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('type') ? 'focused error' : ''}}">
-                            <label>Select type</label>
+                            <label>{{__('app.Select type')}}</label>
                             <select name="type" class="form-control show-tick">
-                                <option value="">-- Please select --</option>
-                                <option value="house">House</option>
-                                <option value="apartment">Apartment</option>
-                                <option value="chalet">Chalet</option>
+                                <option value="">-- {{__('app.Please select')}} --</option>
+                                <option value="house">{{__('app.House')}}</option>
+                                <option value="apartment">{{__('app.Apartment')}}</option>
+                                <option value="chalet">{{__('app.Chalet')}}</option>
                             </select>
                         </div>
                     </div>
 
-                    <h5>Features</h5>
+                    <h5>{{__('app.Features')}}</h5>
                     <div class="form-group demo-checkbox">
                         @foreach($features as $feature)
                             <input type="checkbox" id="features-{{$feature->id}}" name="features[]" class="filled-in chk-col-indigo" value="{{$feature->id}}" />
@@ -141,25 +141,25 @@
                     </div>
 
                     <div class="form-group form-float">
+                        <label class="form-label">{{__('app.Video')}}</label>
                         <div class="form-line">
                             <input type="text" class="form-control" name="video">
-                            <label class="form-label">Video</label>
                         </div>
-                        <div class="help-info">Youtube Link</div>
+                        <div class="help-info">{{__('app.Youtube Link')}}</div>
                     </div>
 
                     <div class="clearfix">
                         <h5>Google Map</h5>
                         <div class="form-group">
+                            <label class="form-label">{{__('app.Latitude')}}</label>
                             <div class="form-line">
                                 <input type="text" name="location_latitude" class="form-control" />
-                                <label class="form-label">Latitude</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="location_longitude" class="form-control" />
-                                <label class="form-label">Longitude</label>
+                                <label class="form-label">{{__('Longitude')}}</label>
                             </div>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
             </div>
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>FLOOR PLAN</h2>
+                    <h2>{{__('FLOOR PLAN')}}</h2>
                 </div>
                 <div class="body">
                     <div class="form-group">
@@ -178,7 +178,7 @@
             </div>
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>FEATURED IMAGE</h2>
+                    <h2>{{__('app.FEATURED IMAGE')}}</h2>
                 </div>
                 <div class="body">
                     <div class="form-group">
@@ -188,12 +188,12 @@
                     {{-- BUTTON --}}
                     <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>BACK</span>
+                        <span>{{__('app.BACK')}}</span>
                     </a>
 
                     <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                         <i class="material-icons">save</i>
-                        <span>SAVE</span>
+                        <span>{{__('app.save')}}</span>
                     </button>
                 </div>
             </div>

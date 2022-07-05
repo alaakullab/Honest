@@ -84,6 +84,7 @@ return [
     'Popular Posts' => 'المقالات الشائعة',
     'Categories' => 'الأصناف',
     'Archives' => 'الأرشيف',
+    'Description' => 'الوصف',
 
 
 ];
