@@ -19,8 +19,8 @@
             <div class="card">
                 <div class="header bg-indigo">
                     <h2>
-                        GALLERY IMAGE
-                        <a href="{{ route('admin.album') }}" class="right" title="Back"><i class="material-icons">undo</i></a>
+                        {{strtoupper(__('app.gallery image'))}}
+                        <a href="{{ route('admin.album',app()->getLocale()) }}" class="right" title="Back"><i class="material-icons">undo</i></a>
                     </h2>
                 </div>
                 <div class="body">
@@ -40,16 +40,16 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>UPLOAD GALLERY IMAGE</h2>
+                    <h2>{{strtoupper(__('app.upload gallery image'))}}</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.galleries.store')}}" method="POST" id="frmFileUpload" class="dropzone">
+                    <form action="{{route('admin.galleries.store',app()->getLocale())}}" method="POST" id="frmFileUpload" class="dropzone">
                         @csrf
                         <div class="dz-message">
                             <div class="drag-icon-cph">
                                 <i class="material-icons">touch_app</i>
                             </div>
-                            <h3>Drop files here or click to upload.</h3>
+                            <h3>{{__('app.Drop files here or click to upload.')}}</h3>
                             <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>
                         </div>
                         <div class="fallback">
@@ -58,7 +58,7 @@
                         <input type="hidden" name="albumid" value="{{$album_id}}">
                     </form>
                     
-                    <a href="{{route('admin.album.gallery',$album_id)}}" class="btn btn-indigo btn-lg m-t-15 waves-effect" style="width:100%">
+                    <a href="{{route('admin.album.gallery',[app()->getLocale(),$album_id])}}" class="btn btn-indigo btn-lg m-t-15 waves-effect" style="width:100%">
                         <i class="material-icons">refresh</i>
                         <span>Refresh</span>
                     </a>

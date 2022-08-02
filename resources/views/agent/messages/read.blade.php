@@ -18,9 +18,9 @@
                 <div class="col s12 m9">
 
                     <h4 class="agent-title">READ MESSAGES</h4>
-                    
+
                     <div class="agent-content">
-                        
+
                         <span><strong>From:</strong> <em>{{ $message->name }} < {{ $message->email }} ></em></span> <br>
                         <span><strong>Phone:</strong> {{ $message->phone }}</span>
 
@@ -43,7 +43,7 @@
                                 <i class="material-icons left">local_library</i>
                                 @if($message->status)
                                     <span>Unread</span>
-                                @else 
+                                @else
                                     <span>Read</span>
                                 @endif
                             </button>

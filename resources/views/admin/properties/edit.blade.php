@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Edit Property')
+@section('title', __('app.edit property'))
 
 @push('styles')
 
@@ -21,7 +21,7 @@
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>{{__('app.Edit PROPERTY')}}</h2>
+                    <h2>{{__('app.edit property')}}</h2>
                 </div>
                 <div class="body">
 
@@ -40,14 +40,14 @@
                     </div>
 
                     <div class="form-group form-float">
-                        <label class="form-label">{{__('app.Bedroom')}}</label>
+                        <label class="form-label">{{__('app.bedroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bedroom" value="{{$property->bedroom}}" required>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
-                        <label class="form-label">{{__('app.Bathroom')}}</label>
+                        <label class="form-label">{{__('app.bathroom')}}</label>
                         <div class="form-line">
                             <input type="number" class="form-control" name="bathroom" value="{{$property->bathroom}}" required>
                         </div>
@@ -97,7 +97,7 @@
 
             <div class="card">
                 <div class="header bg-red">
-                    <h2>GALLERY IMAGE</h2>
+                    <h2>{{__('app.gallery image')}}</h2>
                 </div>
                 <div class="body">
                     <div class="gallery-box" id="gallerybox">
@@ -111,7 +111,7 @@
                     <div class="gallery-box">
                         <hr>
                         <input type="file" name="gallaryimage[]" value="UPLOAD" id="gallaryimageupload" multiple>
-                        <button type="button" class="btn btn-info btn-lg right" id="galleryuploadbutton">UPLOAD GALLERY IMAGE</button>
+                        <button type="button" class="btn btn-info btn-lg right" id="galleryuploadbutton">{{__('app.UPLOAD GALLERY IMAGE')}}</button>
                     </div>
                 </div>
             </div>
@@ -120,34 +120,34 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>SELECT</h2>
+                    <h2>{{__('app.SELECT')}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('purpose') ? 'focused error' : ''}}">
-                            <label>Select Purpose</label>
+                            <label>{{__('app.Select Purpose')}}</label>
                             <select name="purpose" class="form-control show-tick">
-                                <option value="">-- Please select --</option>
-                                <option value="sale" {{ $property->purpose=='sale' ? 'selected' : '' }}>Sale</option>
-                                <option value="rent" {{ $property->purpose=='rent' ? 'selected' : '' }}>Rent</option>
+                                <option value="">-- {{__('app.Please select')}} --</option>
+                                <option value="sale" {{ $property->purpose=='sale' ? 'selected' : '' }}>{{__('app.Sale')}}</option>
+                                <option value="rent" {{ $property->purpose=='rent' ? 'selected' : '' }}>{{__('app.Rent')}}</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('type') ? 'focused error' : ''}}">
-                            <label>Select type</label>
+                            <label>{{__('app.Select type')}}</label>
                             <select name="type" class="form-control show-tick">
-                                <option value="">-- Please select --</option>
-                                <option value="house" {{ $property->type=='house' ? 'selected' : '' }}>House</option>
-                                <option value="apartment" {{ $property->type=='apartment' ? 'selected' : '' }}>Apartment</option>
-                                <option value="chalet" <?php echo e($property->type=='chalet' ? 'selected' : ''); ?>>Chalet</option>
+                                <option value="">-- {{__('app.Please select')}} --</option>
+                                <option value="house" {{ $property->type=='house' ? 'selected' : '' }}>{{__('app.Apartment')}}</option>
+                                <option value="apartment" {{ $property->type=='apartment' ? 'selected' : '' }}>{{__('app.Apartment')}}</option>
+                                <option value="chalet" <?php echo e($property->type=='chalet' ? 'selected' : ''); ?>>{{__('app.Chalet')}}</option>
                             </select>
                         </div>
                     </div>
 
-                    <h5>Features</h5>
+                    <h5>{{__('app.Features')}}</h5>
                     <div class="form-group demo-checkbox">
                         @foreach($features as $feature)
                             <input type="checkbox" id="features-{{$feature->id}}" name="features[]" class="filled-in chk-col-indigo" value="{{$feature->id}}" 
@@ -160,17 +160,17 @@
                     </div>
 
                     <div class="clearfix">
-                        <h5>Google Map</h5>
+                        <h5>{{__('app.Google Map')}}</h5>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="location_latitude" class="form-control" value="{{$property->location_latitude}}" />
-                                <label class="form-label">Latitude</label>
+                                <label class="form-label">{{__('app.Latitude')}}</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" name="location_longitude" class="form-control" value="{{$property->location_longitude}}" />
-                                <label class="form-label">Longitude</label>
+                                <label class="form-label">{{__('app.Longitude')}}</label>
                             </div>
                         </div>
                     </div>
@@ -180,15 +180,15 @@
 
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>PROPERTY VIDEO</h2>
+                    <h2>{{__('app.Video')}}</h2>
                 </div>
                 <div class="body">
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input type="text" class="form-control" name="video" value="{{$property->video}}">
-                            <label class="form-label">Video</label>
+                            <label class="form-label">{{__('app.Video')}}</label>
                         </div>
-                        <div class="help-info">Youtube Link</div>
+                        <div class="help-info">{{__('app.Youtube Link')}}</div>
                     </div>
                     <div class="embed-video center">
                         {!! $videoembed !!}
@@ -198,7 +198,7 @@
 
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>FLOOR PLAN</h2>
+                    <h2>{{__('app.FLOOR PLAN')}}</h2>
                 </div>
                 <div class="body">
                     <div class="form-group">
@@ -212,7 +212,7 @@
 
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>FEATURED IMAGE</h2>
+                    <h2>{{__('app.Featured Image')}}</h2>
                 </div>
                 <div class="body">
 
@@ -226,12 +226,12 @@
                     {{-- BUTTON --}}
                     <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>BACK</span>
+                        <span>{{__('app.Back')}}</span>
                     </a>
 
                     <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                         <i class="material-icons">save</i>
-                        <span>SAVE</span>
+                        <span>{{__('app.Save')}}</span>
                     </button>
 
                 </div>

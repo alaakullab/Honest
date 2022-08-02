@@ -54,7 +54,7 @@ class SliderController extends Controller
         $slider->image = $imagename;
         $slider->save();
 
-        Toastr::success('message', 'Slider created successfully.');
+        Toastr::success('message', __('app.Slider created successfully.'));
         return redirect()->route('admin.sliders.index',app()->getLocale());
     }
 
@@ -98,7 +98,7 @@ class SliderController extends Controller
         $slider->image = $imagename;
         $slider->save();
 
-        Toastr::success('message', 'Slider updated successfully.');
+        Toastr::success('message', __('app.Slider updated successfully.'));
         return redirect()->route('admin.sliders.index',app()->getLocale());
     }
 

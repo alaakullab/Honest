@@ -14,7 +14,7 @@
     <div class="block-header">
         <a href="{{route('admin.testimonials.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
-            <span>{{__('app.Create')}}</span>
+            <span>{{__('app.CREATE')}}</span>
         </a>
     </div>
 
@@ -29,7 +29,7 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>{{__('app.SL.')}}</th>
+                                    <th>#</th>
                                     <th>{{__('app.Image')}}</th>
                                     <th>{{__('app.Name')}}</th>
                                     <th>{{__('app.Testimonial')}}</th>

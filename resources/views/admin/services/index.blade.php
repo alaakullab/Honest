@@ -14,7 +14,7 @@
     <div class="block-header">
         <a href="{{route('admin.services.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
-            <span>CREATE </span>
+            <span>{{__('app.CREATE')}}</span>
         </a>
     </div>
 
@@ -22,7 +22,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>SERVICE LIST</h2>
+                    <h2>{{__('app.SERVICE LIST')}}</h2>
                 </div>
                 <div class="body">
                     <div class="table-responsive">
@@ -30,11 +30,11 @@
                             <thead>
                                 <tr>
                                     <th>SL.</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Icon</th>
-                                    <th>Order</th>
-                                    <th width="100px">Action</th>
+                                    <th>{{__('app.Title')}}</th>
+                                    <th>{{__('app.Description')}}</th>
+                                    <th>{{__('app.Icon')}}</th>
+                                    <th>{{__('app.Orders')}}</th>
+                                    <th width="100px">{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Post')
+@section('title', __('app.Create Post'))
 
 @push('styles')
 
@@ -14,29 +14,29 @@
     <div class="block-header"></div>
 
     <div class="row clearfix">
-        <form action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.posts.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>CREATE POST</h2>
+                    <h2>{{__('app.CREATE')}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
+                        <label for="title" class="form-label">{{__('app.Post Title')}}</label>
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" value="{{old('title')}}">
-                            <label class="form-label">Post Title</label>
+                            <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <input type="checkbox" id="published" name="status" class="filled-in" value="1" />
-                        <label for="published">Published</label>
+                        <label for="published">{{__('app.Published')}}</label>
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="">Body</label>
+                        <label for="tinymce">{{__('app.Article Body')}}</label>
                         <textarea name="body" id="tinymce">{{old('body')}}</textarea>
                     </div>
 
@@ -46,13 +46,13 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>SELECT CATEGORY</h2>
+                    <h2>{{strtoupper(__('app.select category'))}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('categories') ? 'focused error' : ''}}">
-                            <label>Select Category</label>
+                            <label>{{__('app.select category')}}</label>
                             <select name="categories[]" class="form-control show-tick" multiple data-live-search="true">
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -63,7 +63,7 @@
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('tags') ? 'focused error' : ''}}">
-                            <label>Select Tag</label>
+                            <label>{{__('app.select tag')}}</label>
                             <select name="tags[]" class="form-control show-tick" multiple data-live-search="true">
                                 @foreach($tags as $tag)
                                     <option value="{{$tag->id}}">{{$tag->name}}</option>
@@ -73,19 +73,19 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="form-label">Featured Image</label>
+                        <label for="form-label">{{__('app.Featured Image')}}</label>
                         <input type="file" name="image">
                     </div>
 
 
-                    <a href="{{route('admin.posts.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.posts.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>BACK</span>
+                        <span>{{__('app.Back')}}</span>
                     </a>
 
                     <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                         <i class="material-icons">save</i>
-                        <span>SAVE</span>
+                        <span>{{__('app.Save')}}</span>
                     </button>
 
                 </div>

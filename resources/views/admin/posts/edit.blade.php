@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Edit Post')
+@section('title', __('app.edit post'))
 
 @push('styles')
 
@@ -14,20 +14,20 @@
     <div class="block-header"></div>
 
     <div class="row clearfix">
-        <form action="{{route('admin.posts.update',$post->slug)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.posts.update',[app()->getLocale(),$post->slug])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>EDIT POST</h2>
+                    <h2>{{strtoupper(__('app.edit post'))}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
+                        <label for="title" class="form-label">{{__('app.Post Title')}}</label>
                         <div class="form-line">
-                            <input type="text" name="title" class="form-control" value="{{$post->title}}">
-                            <label class="form-label">Post Title</label>
+                            <input type="text" name="title" id="title" class="form-control" value="{{$post->title}}">
                         </div>
                     </div>
 
@@ -42,11 +42,11 @@
                             @endphp
                         @endif
                         <input type="checkbox" id="published" name="status" class="filled-in" value="1" {{$checked}}/>
-                        <label for="published">Published</label>
+                        <label for="published">{{__('app.Published')}}</label>
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="">Body</label>
+                        <label for="tinymce">{{__('app.Article Body')}}</label>
                         <textarea name="body" id="tinymce">{{$post->body}}</textarea>
                     </div>
 
@@ -56,13 +56,13 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>SELECT CATEGORY</h2>
+                    <h2>{{strtoupper(__('app.select category'))}}</h2>
                 </div>
                 <div class="body">
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('categories') ? 'focused error' : ''}}">
-                            <label for="categories">Select Category</label>
+                            <label for="categories">{{__('app.select category')}}</label>
                             <select name="categories[]" class="form-control show-tick" id="categories" multiple data-live-search="true">
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}</option>
@@ -73,7 +73,7 @@
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('tags') ? 'focused error' : ''}}">
-                            <label for="tags">Select Tag</label>
+                            <label for="tags">{{__('app.select tag')}}</label>
                             <select name="tags[]" class="form-control show-tick" id="tags" multiple data-live-search="true">
                                 @foreach($tags as $tag)
                                     <option value="{{$tag->id}}">{{$tag->name}}</option>
@@ -83,19 +83,19 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="form-label">Featured Image</label>
+                        <label for="form-label">{{__('app.featured image')}}</label>
                         <input type="file" name="image">
                     </div>
 
 
-                    <a href="{{route('admin.posts.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.posts.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>BACK</span>
+                        <span>{{strtoupper(__('app.back'))}}</span>
                     </a>
 
                     <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                         <i class="material-icons">save</i>
-                        <span>UPDATE</span>
+                        <span>{{strtoupper(__('app.update'))}}</span>
                     </button>
 
                 </div>

@@ -39,7 +39,7 @@
     <a href="{{ route('agent.properties.create',app()->getLocale()) }}">
         <li class="collection-item {{ Request::is('agent/properties/create') ? 'active' : '' }}">
             <i class="material-icons left">create</i>
-            <span>Create Property<span>
+            <span>{{__('app.Create Property')}}<span>
         </li>
     </a>
     <a href="{{ route('agent.changepassword',app()->getLocale()) }}">

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Show Post')
+@section('title',__('app.Show Post'))
 
 @push('styles')
 
@@ -18,14 +18,14 @@
             <div class="card">
 
                 <div class="header bg-indigo">
-                    <h2>SHOW POST</h2>
+                    <h2>{{strtoupper(__('app.Show Post'))}}</h2>
                 </div>
 
                 <div class="header">
                     <h2>
                         {{$post->title}}
                         <br>
-                        <small>Posted By <strong>{{$post->user->name}}</strong> on {{$post->created_at->toFormattedDateString()}}</small>
+                        <small>{{__('app.Posted By ')}}<strong>{{$post->user->name}}</strong>{{__('app. on ')}}{{$post->created_at->toFormattedDateString()}}</small>
                     </h2>
                 </div>
 
@@ -38,7 +38,7 @@
             {{-- COMMENTS --}}
             <div class="card">
                 <div class="header">
-                    <h2>{{ $post->comments_count }} Comments</h2>
+                    <h2>{{ $post->comments_count }} {{__('app.Comments')}}</h2>
                 </div>
                 <div class="body">
                     @foreach($post->comments as $comment)
@@ -85,7 +85,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-cyan">
-                    <h2>SELECTED CATEGORY</h2>
+                    <h2>{{strtoupper(__('app.selected category'))}}</h2>
                 </div>
                 <div class="body">
                     @foreach($post->categories as $category)
@@ -95,7 +95,7 @@
             </div>
             <div class="card">
                 <div class="header bg-green">
-                    <h2>SELECTED TAGS</h2>
+                    <h2>{{strtoupper(__('app.selected tags'))}}</h2>
                 </div>
                 <div class="body">
                     @foreach($post->tags as $tag)
@@ -106,20 +106,20 @@
 
             <div class="card">
                 <div class="header bg-amber">
-                    <h2>FEATURED IMAGE</h2>
+                    <h2>{{strtoupper(__('app.featured image'))}}</h2>
                 </div>
                 <div class="body">
 
                     <img class="img-responsive thumbnail" src="{{Storage::url('posts/'.$post->image)}}" alt="">
                     
 
-                    <a href="{{route('admin.posts.index')}}" class="btn btn-danger btn-lg waves-effect">
+                    <a href="{{route('admin.posts.index',app()->getLocale())}}" class="btn btn-danger btn-lg waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>BACK</span>
+                        <span>{{strtoupper(__('app.back'))}}</span>
                     </a>
-                    <a href="{{route('admin.posts.edit',$post->slug)}}" class="btn btn-info btn-lg waves-effect">
+                    <a href="{{route('admin.posts.edit',[app()->getLocale(),$post->slug])}}" class="btn btn-info btn-lg waves-effect">
                         <i class="material-icons">edit</i>
-                        <span>EDIT</span>
+                        <span>{{strtoupper(__('app.edit'))}}</span>
                     </a>
 
                 </div>

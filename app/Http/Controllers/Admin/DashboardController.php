@@ -133,7 +133,7 @@ class DashboardController extends Controller
             'name'      => 'required',
             'username'  => 'required',
             'email'     => 'required|email',
-            'image'     => 'image|mimes:jpeg,jpg,png',
+            'image'     => 'mimes:jpeg,jpg,png',
             'about'     => 'max:250'
         ]);
 
@@ -226,7 +226,7 @@ class DashboardController extends Controller
         $message->status = $status;
         $message->save();
 
-        return redirect()->route('admin.message');
+        return redirect()->route('admin.message',app()->getLocale());
     }
 
     public function messageDelete($locale,$id)

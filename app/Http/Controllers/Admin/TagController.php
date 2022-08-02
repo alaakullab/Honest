@@ -25,7 +25,7 @@ class TagController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'name' => 'required|unique:tags|max:255'
@@ -41,13 +41,13 @@ class TagController extends Controller
     }
 
 
-    public function show($id)
+    public function show($locale,$id)
     {
         //
     }
 
 
-    public function edit($id)
+    public function edit($locale,$id)
     {
         $tag = Tag::find($id);
 
@@ -55,7 +55,7 @@ class TagController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update($locale,Request $request, $id)
     {
         $request->validate([
             'name' => 'required|max:255'
@@ -71,7 +71,7 @@ class TagController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($locale,$id)
     {
         $tag = Tag::find($id);
         $tag->delete();

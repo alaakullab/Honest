@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Posts')
+@section('title', __('app.Posts'))
 
 @push('styles')
 
@@ -12,9 +12,9 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.posts.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.posts.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
-            <span>CREATE </span>
+            <span>{{__('app.CREATE')}}</span>
         </a>
     </div>
 
@@ -22,23 +22,23 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>POST LIST</h2>
+                    <h2>{{__('app.POST LIST')}}</h2>
                 </div>
                 <div class="body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Category</th>
+                                    <th>#</th>
+                                    <th>{{__('app.Image')}}</th>
+                                    <th>{{__('app.Title')}}</th>
+                                    <th>{{__('app.Author')}}</th>
+                                    <th>{{__('app.Category')}}</th>
                                     <th><i class="material-icons">visibility</i></th>
-                                    <th>Is Approved</th>
-                                    <th>Status</th>
+                                    <th>{{__('app.Is Approved')}}</th>
+                                    <th>{{__('app.Status')}}</th>
                                     <th><i class="material-icons small">comment</i></th>
-                                    <th width="150">Action</th>
+                                    <th width="150">{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
 
@@ -68,16 +68,16 @@
                                     <td>{{$post->view_count}}</td>
                                     <td>
                                         @if($post->is_approved == true)
-                                            <span class="badge bg-green">Approved</span>
+                                            <span class="badge bg-green">{{__('app.Approved')}}</span>
                                         @else 
-                                            <span class="badge bg-pink">Pending</span>
+                                            <span class="badge bg-pink">{{__('app.Pending')}}</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if($post->status == true)
-                                            <span class="badge bg-green">Published</span>
+                                            <span class="badge bg-green">{{__('app.Published')}}</span>
                                         @else 
-                                            <span class="badge bg-pink">Pending</span>
+                                            <span class="badge bg-pink">{{__('app.Pending')}}</span>
                                         @endif
                                     </td>
                                     <td>
@@ -87,16 +87,16 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.posts.show',$post->slug)}}" class="btn btn-success btn-sm waves-effect">
+                                        <a href="{{route('admin.posts.show',[app()->getLocale(),$post->slug])}}" class="btn btn-success btn-sm waves-effect">
                                             <i class="material-icons">visibility</i>
                                         </a>
-                                        <a href="{{route('admin.posts.edit',$post->slug)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.posts.edit',[app()->getLocale(),$post->slug])}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deletePost({{$post->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.posts.destroy',$post->slug)}}" method="POST" id="del-post-{{$post->id}}" style="display:none;">
+                                        <form action="{{route('admin.posts.destroy',[app()->getLocale(),$post->slug])}}" method="POST" id="del-post-{{$post->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

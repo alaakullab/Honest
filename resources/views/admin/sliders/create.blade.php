@@ -18,7 +18,7 @@
                         {{__('app.CREATE SLIDER')}}
                         <a href="{{route('admin.sliders.index',app()->getLocale())}}" class="waves-effect waves-light btn right headerightbtn">
                             <i class="material-icons left">arrow_back</i>
-                            <span>{{__('app.back')}}</span>
+                            <span>{{__('app.Back')}}</span>
                         </a>
                     </h2>
                 </div>
@@ -51,7 +51,7 @@
 
                         <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                             <i class="material-icons">save</i>
-                            <span>{{__('app.save')}}</span>
+                            <span>{{__('app.Save')}}</span>
                         </button>
 
                     </form>

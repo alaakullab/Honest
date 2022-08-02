@@ -4,7 +4,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="{{ route('admin.dashboard',app()->getLocale()) }}">Real Estate</a>
+                <a class="navbar-brand" href="{{ route('admin.dashboard',app()->getLocale()) }}">{{__('app.Hones')}}</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -57,18 +57,18 @@
                         </a>
                         <ul class="dropdown-menu pull-right">
                             <li>
-                                <a href="{{route('admin.profile',app()->getLocale())}}"><i class="material-icons">person</i>Profile</a>
+                                <a href="{{route('admin.profile',app()->getLocale())}}"><i class="material-icons">person</i>{{__('app.Profile')}}</a>
                             </li>
 
                             <li role="seperator" class="divider"></li>
                             <li>
-                                <a href="{{ route('admin.message',app()->getLocale()) }}"><i class="material-icons">message</i>Messages</a>
+                                <a href="{{ route('admin.message',app()->getLocale()) }}"><i class="material-icons">message</i>{{__('app.Messages')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.changepassword',app()->getLocale()) }}"><i class="material-icons">lock</i>Password</a>
+                                <a href="{{ route('admin.changepassword',app()->getLocale()) }}"><i class="material-icons">lock</i>{{__('app.Password')}}</a>
                             </li>
                             <li>
-                                <a href="{{ route('home',app()->getLocale()) }}" target="_blank"><i class="material-icons">home</i>Visit Site</a>
+                                <a href="{{ route('home',app()->getLocale()) }}" target="_blank"><i class="material-icons">home</i>{{__('app.Visit Site')}}</a>
                             </li>
                             <li role="seperator" class="divider"></li>
 
@@ -76,7 +76,7 @@
                                 <a class="dropdownitem" href="{{ route('logout',app()->getLocale()) }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                                    <i class="material-icons">input</i> {{ __('Sign Out') }}
+                                    <i class="material-icons">input</i> {{ __('app.Sign Out') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout',app()->getLocale()) }}" method="POST" style="display: none;">

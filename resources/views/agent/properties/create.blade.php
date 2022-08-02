@@ -18,7 +18,7 @@
 
                 <div class="col s12 m9">
                     <div class="agent-content">
-                        <h4 class="agent-title">CREATE PROPERTY</h4>
+                        <h4 class="agent-title">{{__('app.Create Property')}}</h4>
 
                         <form action="{{route('agent.properties.store',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                             @csrf

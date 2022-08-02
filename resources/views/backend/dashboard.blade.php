@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="block-header">
-        <h2>DASHBOARD</h2>
+        <h2>{{__('app.DASHBOARD')}}</h2>
     </div>
 
 @endsection

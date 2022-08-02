@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Property')
+@section('title', __('app.Create Property'))
 
 @push('styles')
 
@@ -20,7 +20,7 @@
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>{{__('app.CREATE PROPERTY')}}</h2>
+                    <h2>{{__('app.Create Property')}}</h2>
                 </div>
                 <div class="body">
 
@@ -95,7 +95,7 @@
             </div>
             <div class="card">
                 <div class="header">
-                    <h2>{{__('app.GALLERY IMAGE')}}</h2>
+                    <h2>{{__('app.gallery image')}}</h2>
                 </div>
                 <div class="body">
                     <input id="input-id" type="file" name="gallaryimage[]" class="file" data-preview-file-type="text" multiple>
@@ -149,7 +149,7 @@
                     </div>
 
                     <div class="clearfix">
-                        <h5>Google Map</h5>
+                        <h5>{{__('app.Google Map')}}</h5>
                         <div class="form-group">
                             <label class="form-label">{{__('app.Latitude')}}</label>
                             <div class="form-line">
@@ -178,7 +178,7 @@
             </div>
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>{{__('app.FEATURED IMAGE')}}</h2>
+                    <h2>{{__('app.Featured Image')}}</h2>
                 </div>
                 <div class="body">
                     <div class="form-group">
@@ -188,12 +188,12 @@
                     {{-- BUTTON --}}
                     <a href="{{route('admin.properties.index',app()->getLocale())}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
-                        <span>{{__('app.BACK')}}</span>
+                        <span>{{__('app.Back')}}</span>
                     </a>
 
                     <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                         <i class="material-icons">save</i>
-                        <span>{{__('app.save')}}</span>
+                        <span>{{__('app.Save')}}</span>
                     </button>
                 </div>
             </div>

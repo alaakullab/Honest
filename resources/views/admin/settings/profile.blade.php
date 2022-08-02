@@ -18,34 +18,34 @@
                 <div class="header bg-indigo">
                     <h2>
                         PROFILE
-                        <a href="{{route('admin.changepassword')}}" class="btn waves-effect waves-light right headerightbtn">
+                        <a href="{{route('admin.changepassword',app()->getLocale())}}" class="btn waves-effect waves-light right headerightbtn">
                             <i class="material-icons left">lock</i>
                             <span>CHANGE PASSWORD </span>
                         </a>
                     </h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.profile')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.profile',app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
+                            <label class="form-label">Name</label>
                             <div class="form-line">
                                 <input type="text" name="name" class="form-control" value="{{ $profile->name or null }}">
-                                <label class="form-label">Name</label>
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <label class="form-label">User Name</label>
                             <div class="form-line">
                                 <input type="text" name="username" class="form-control" value="{{ $profile->username or null }}">
-                                <label class="form-label">User Name</label>
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <label class="form-label">Email</label>
                             <div class="form-line">
                                 <input type="email" name="email" class="form-control" value="{{ $profile->email or null }}">
-                                <label class="form-label">Email</label>
                             </div>
                         </div>
 
@@ -60,9 +60,9 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="form-label">About Us</label>
                             <div class="form-line">
                                 <textarea name="about" rows="4" class="form-control no-resize">{{ $profile->about or null }}</textarea>
-                                <label class="form-label">About Us</label>
                             </div>
                         </div>
 

@@ -18,10 +18,10 @@
             <div class="card">
                 <div class="header bg-indigo">
                     <h2>
-                        SLIDER LIST
+                        {{__('app.SLIDER LIST')}}
                         <a href="{{route('admin.sliders.create',app()->getLocale())}}" class="btn waves-effect waves-light right headerightbtn">
                             <i class="material-icons left">add</i>
-                            <span>CREATE </span>
+                            <span>{{__('app.CREATE')}}</span>
                         </a>
                     </h2>
                 </div>
@@ -30,11 +30,11 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th width="100px">Action</th>
+                                    <th>#</th>
+                                    <th>{{__('app.Image')}}</th>
+                                    <th>{{__('app.Title')}}</th>
+                                    <th>{{__('app.Description')}}</th>
+                                    <th width="100px">{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
                             <tbody>

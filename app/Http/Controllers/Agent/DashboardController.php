@@ -76,7 +76,7 @@ class DashboardController extends Controller
     }
 
 
-    
+
     public function changePassword()
     {
         return view('agent.changepassword');
@@ -121,7 +121,6 @@ class DashboardController extends Controller
 
     public function messageRead($locale,$id)
     {
-        dd(11);
         $message = Message::findOrFail($id);
 
         return view('agent.messages.read',compact('message'));

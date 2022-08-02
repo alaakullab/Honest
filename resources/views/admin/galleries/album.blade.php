@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Gallery')
+@section('title', __('app.create gallery'))
 
 @push('styles')
 
@@ -15,7 +15,7 @@
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>ALBUM LIST</h2>
+                    <h2>{{strtoupper(__('app.album list'))}}</h2>
                 </div>
                 <div class="body">
                     <div class="row">
@@ -47,7 +47,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>CREATE ALBUM</h2>
+                    <h2>{{strtoupper(__('app.create album'))}}</h2>
                 </div>
                 <div class="body">
 
@@ -61,7 +61,7 @@
                         </div>
                         <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                             <i class="material-icons">save</i>
-                            <span>SAVE</span>
+                            <span>{{__('app.Save')}}</span>
                         </button>
                     </form>
 

@@ -14,7 +14,7 @@
     <div class="block-header">
         <a href="{{route('admin.tags.create',app()->getLocale())}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
-            <span>CREATE </span>
+            <span>{{__('app.CREATE')}}</span>
         </a>
     </div>
 
@@ -22,27 +22,27 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>TAG LIST</h2>
+                    <h2>{{__('app.TAG LIST')}}</h2>
                 </div>
                 <div class="body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Name</th>
-                                    <th>Post Count</th>
-                                    <th>Slug</th>
-                                    <th>Action</th>
+                                    <th>#</th>
+                                    <th>{{__('app.Name')}}</th>
+                                    <th>{{__('app.Post Count')}}</th>
+                                    <th>{{__('app.Slug')}}</th>
+                                    <th>{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Name</th>
-                                    <th>Post Count</th>
-                                    <th>Slug</th>
-                                    <th>Action</th>
+                                    <th>#</th>
+                                    <th>{{__('app.Name')}}</th>
+                                    <th>{{__('app.Post Count')}}</th>
+                                    <th>{{__('app.Slug')}}</th>
+                                    <th>{{__('app.Action')}}</th>
                                 </tr>
                             </tfoot>
                             <tbody>

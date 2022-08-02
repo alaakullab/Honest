@@ -16,7 +16,7 @@
         <div class="col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>MESSAGES</h2>
+                    <h2>{{__('app.Messages')}}</h2>
                 </div>
                 <div class="body">
 
@@ -24,12 +24,12 @@
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>SL.</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Message</th>
-                                    <th width="150px">Action</th>
+                                    <th>#</th>
+                                    <th>{{__('app.Name')}}</th>
+                                    <th>{{__('app.Email')}}</th>
+                                    <th>{{__('app.Phone')}}</th>
+                                    <th>{{__('app.Message')}}</th>
+                                    <th width="150px">{{__('app.Action')}}</th>
                                 </tr>
                             </thead>
 
@@ -46,7 +46,7 @@
                                             <a href="{{route('admin.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-warning btn-sm waves-effect">
                                                 <i class="material-icons">local_library</i>
                                             </a>
-                                        @else 
+                                        @else
                                             <a href="{{route('admin.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-success btn-sm waves-effect">
                                                 <i class="material-icons">done</i>
                                             </a>
@@ -95,7 +95,7 @@
 
     <script>
         function deleteMessage(id){
-            
+
             swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

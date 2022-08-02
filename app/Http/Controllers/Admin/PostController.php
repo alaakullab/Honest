@@ -34,11 +34,11 @@ class PostController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store($locale,Request $request)
     {
         $request->validate([
             'title'     => 'required|unique:posts|max:255',
-            'image'     => 'required|mimes:jpeg,jpg,png',
+            'image'     => 'mimes:jpeg,jpg,png',
             'categories'=> 'required',
             'tags'      => 'required',
             'body'      => 'required'
@@ -54,7 +54,7 @@ class PostController extends Controller
             if(!Storage::disk('public')->exists('posts')){
                 Storage::disk('public')->makeDirectory('posts');
             }
-            $postimage = Image::make($image)->resize(1600, 980)->save();
+            $postimage = Image::make($image)->resize(1600, 980)->stream();
             Storage::disk('public')->put('posts/'.$imagename, $postimage);
 
         }else{
@@ -82,7 +82,7 @@ class PostController extends Controller
     }
 
 
-    public function show(Post $post)
+    public function show($locale,Post $post)
     {
         $post = Post::withCount('comments')->find($post->id);
 
@@ -90,7 +90,7 @@ class PostController extends Controller
     }
 
 
-    public function edit(Post $post)
+    public function edit($locale,Post $post)
     {
         $categories = Category::all();
         $tags = Tag::all();
@@ -102,7 +102,7 @@ class PostController extends Controller
     }
 
 
-    public function update(Request $request, $post)
+    public function update($locale,Request $request, $post)
     {
         $request->validate([
             'title'     => 'required|max:255',
@@ -155,7 +155,7 @@ class PostController extends Controller
     }
 
 
-    public function destroy(Post $post)
+    public function destroy($locale,Post $post)
     {
         $post = Post::find($post->id);
 

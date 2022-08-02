@@ -18,7 +18,7 @@
                 <div class="col s12 m9">
 
                     <h4 class="agent-title">MESSAGES</h4>
-                    
+
                     <div class="agent-content">
                         <table class="striped responsive-table">
                             <thead>
@@ -30,7 +30,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                    
+
                             <tbody>
                                 @foreach( $messages as $key => $message )
                                     <tr>
@@ -47,7 +47,7 @@
                                                 <a href="{{route('agent.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-small orange waves-effect">
                                                     <i class="material-icons">local_library</i>
                                                 </a>
-                                            @else 
+                                            @else
                                                 <a href="{{route('agent.message.read',[app()->getLocale(),$message->id])}}" class="btn btn-small green waves-effect">
                                                     <i class="material-icons">done</i>
                                                 </a>
@@ -71,7 +71,7 @@
                             {{ $messages->links() }}
                         </div>
                     </div>
-        
+
                 </div>
 
             </div>
