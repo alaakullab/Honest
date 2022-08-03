@@ -148,23 +148,23 @@
                         </div>
                         <div class="card-content">
                             <span class="card-title tooltipped" data-position="bottom" data-tooltip="{{$post->title}}">
-                                <a href="{{ route('blog.show',$post->slug) }}">{{ str_limit($post->title,18) }}</a>
+                                <a href="{{ route('blog.show',[app()->getLocale(),$post->slug]) }}">{{ str_limit($post->title,18) }}</a>
                             </span>
                             {!! str_limit($post->body,120) !!}
                         </div>
                         <div class="card-action blog-action">
-                            <a href="{{ route('blog.author',$post->user->username) }}" class="btn-flat">
+                            <a href="{{ route('blog.author',[app()->getLocale(),$post->user->username]) }}" class="btn-flat">
                                 <i class="material-icons">person</i>
                                 <span>{{$post->user->name}}</span>
                             </a>
                             @foreach($post->categories as $key => $category)
-                                <a href="{{ route('blog.categories',$category->slug) }}" class="btn-flat">
+                                <a href="{{ route('blog.categories',[app()->getLocale(),$category->slug]) }}" class="btn-flat">
                                     <i class="material-icons">folder</i>
                                     <span>{{$category->name}}</span>
                                 </a>
                             @endforeach
                             @foreach($post->tags as $key => $tag)
-                                <a href="{{ route('blog.tags',$tag->slug) }}" class="btn-flat">
+                                <a href="{{ route('blog.tags',[app()->getLocale(),$tag->slug]) }}" class="btn-flat">
                                     <i class="material-icons">label</i>
                                     <span>{{$tag->name}}</span>
                                 </a>
