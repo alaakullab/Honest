@@ -15,7 +15,7 @@ trait AuthenticatesUsers
      *
      * @return \Illuminate\Http\Response
      */
-    public function showLoginForm($locale)
+    public function showLoginForm()
     {
         return view('auth.login');
     }
@@ -28,7 +28,7 @@ trait AuthenticatesUsers
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function login(Request $request)
+    public function login($locale,Request $request)
     {
         $this->validateLogin($request);
 
