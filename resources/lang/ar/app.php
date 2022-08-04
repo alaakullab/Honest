@@ -78,7 +78,7 @@ return [
     'Phone' => 'الهاتف',
     'Message' => 'الرسالة',
     'Call us Now' => 'اتصل بنا الآن',
-    'Email Address' => 'البريد الإلكترونيس',
+    'Email Address' => 'البريد الإلكتروني',
     'Address' => 'العنوان',
     'Blog Posts' => 'المقالات التي تمت مشاركتها',
     'Popular Posts' => 'المقالات الشائعة',
@@ -221,6 +221,19 @@ return [
     'create album' => 'انشئ البوم',
     'upload gallery image' => 'رفع صور للمعرض',
     'Drop files here or click to upload.' => 'قم بس الملفات هنا او اضغط هنا',
+    'general settings' => 'الإعدادات العامة',
+    'Site Title' => 'عنوان الموقع',
+    'HTML Tag allowed' => 'علامات HTML مسموح بها',
+    'Footer' => 'التذييل',
+    'Facebook Link' => 'رابط الفيسبوك',
+    'Twitter Link' => 'رابط تويتر',
+    'LinkedIn Link' => 'رابط لينكد إن',
+    'change password' => 'تغيير الباسوورد',
+    'Change Password' => 'تغيير كلمة المرور',
+    'Social Links' => 'روابط التواصل الإجتماعي',
+    'Current Password' => 'كلمة المرور الحالية',
+    'New Password' => 'كلمة مرور جديدة',
+    'Confirm New Password' => 'تأكيد كلمة المرور جديدة',
 
 
 ];

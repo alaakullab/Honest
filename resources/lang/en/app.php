@@ -52,7 +52,7 @@ return [
     'area' => 'Area',
     'square meter' => 'm²',
     //footer
-    'About Us' => 'About Us',
+    'About Us' => 'About us',
     'Real estate company description goes here' => 'Real estate company description goes here.',
     'Recent Properties' => 'Recent Properties',
     'Menu' => 'Menu',
@@ -219,7 +219,19 @@ return [
     'upload gallery image' => 'upload gallery image',
     'Drop files here or click to upload.' => 'Drop files here or click to upload.',
     'This is just a demo dropzone. Selected files are' => 'This is just a demo dropzone. Selected files are',
-
+    'general settings' => 'general settings',
+    'Site Title' => 'Site Title',
+    'HTML Tag allowed' => 'HTML Tag allowed',
+    'Footer' => 'Footer',
+    'Facebook Link' => 'Facebook Link',
+    'Twitter Link' => 'Twitter Link',
+    'LinkedIn Link' => 'LinkedIn Link',
+    'change password' => 'change password',
+    'Change Password' => 'Change Password',
+    'Social Links' => 'Social Links',
+    'Current Password' => 'Current Password',
+    'New Password' => 'New Password',
+    'Confirm New Password' => 'Confirm New Password',
 
 
 ];
