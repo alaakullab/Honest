@@ -3,7 +3,7 @@
         <div class="container">
             <div class="nav-wrapper">
 
-                <a href="{{ route('home',app()->getLocale()) }}" class="brand-logo">
+                <a href="{{ route('home',app()->getLocale()) }}" class="brand-logo left">
                     @if(isset($navbarsettings[0]) && $navbarsettings[0]['name'])
                         {{ $navbarsettings[0]['name'] }}
                     @else

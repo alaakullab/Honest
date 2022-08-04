@@ -20,7 +20,11 @@
 
     @yield('styles')
     
+    @if(app()->getLocale() == 'ar')
+    <link href="{{ asset('frontend/css/styles_ar.css') }}" rel="stylesheet">
+    @else
     <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet">
+    @endif
 </head>
 
     <body>
