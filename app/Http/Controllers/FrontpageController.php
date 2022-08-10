@@ -14,7 +14,6 @@ class FrontpageController extends Controller
     
     public function index()
     {
-//        dd(__('auth.Home'));
         $sliders        = Slider::latest()->where('lang', app()->getLocale())->get();
         $properties     = Property::latest()->where('featured',1)->where('lang', app()->getLocale())->with('rating')->withCount('comments')->take(6)->get();
         $services       = Service::orderBy('service_order')->get();

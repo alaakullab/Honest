@@ -33,13 +33,14 @@
         @include('frontend.partials.navbar')
 
         {{-- SLIDER SECTION --}}
-        @if(Request::is('/'))
+
+        @if(Request::is(app()->getLocale()))
             @include('frontend.partials.slider')
         @endif
 
         {{-- SEARCH BAR --}}
         @include('frontend.partials.search')
-        
+
         {{-- MAIN CONTENT --}}
         <div class="main">
             @yield('content')
