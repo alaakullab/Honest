@@ -14,6 +14,7 @@ return [
     */
 
     //Start navbar
+    'Honest' => 'آونيست',
     'home' => 'الرئيسية',
     'properties' => 'عقارات',
     'agents' => 'الوكلاء',

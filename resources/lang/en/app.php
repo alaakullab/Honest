@@ -14,6 +14,7 @@ return [
     */
 
     //Start navbar
+    'Honest' => 'Honest',
     'home' => 'Home',
     'properties' => 'Properties',
     'agents' => 'Agents',
