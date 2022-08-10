@@ -25,12 +25,12 @@
                                         </div>
                                     @endif
                                     <span class="card-title">
-                                        <a href="{{ route('blog.show',$post->slug) }}">{{ $post->title }}</a>
+                                        <a href="{{ route('blog.show',[app()->getLocale(),$post->slug]) }}">{{ $post->title }}</a>
                                     </span>
                                     {!! str_limit($post->body,120) !!}
                                 </div>
-                                <div class="card-action blog-action clearfix">
-                                    <a href="{{ route('blog.author',$post->user->username) }}" class="btn-flat">
+                                <div class="card-action blog-action clearfix right">
+                                    <a href="{{ route('blog.author',[app()->getLocale(),$post->user->username]) }}" class="btn-flat">
                                         <i class="material-icons">person</i>
                                         <span>{{$post->user->name}}</span>
                                     </a>
@@ -39,19 +39,19 @@
                                         <span>{{$post->created_at->diffForHumans()}}</span>
                                     </a>
                                     @foreach($post->categories as $key => $category)
-                                        <a href="{{ route('blog.categories',$category->slug) }}" class="btn-flat">
+                                        <a href="{{ route('blog.categories',[app()->getLocale(),$category->slug]) }}" class="btn-flat">
                                             <i class="material-icons">folder</i>
                                             <span>{{$category->name}}</span>
                                         </a>
                                     @endforeach
                                     @foreach($post->tags as $key => $tag)
-                                        <a href="{{ route('blog.tags',$tag->slug) }}" class="btn-flat">
+                                        <a href="{{ route('blog.tags',[app()->getLocale(),$tag->slug]) }}" class="btn-flat">
                                             <i class="material-icons">label</i>
                                             <span>{{$tag->name}}</span>
                                         </a>
                                     @endforeach
                                     
-                                    <a href="{{ route('blog.show',$post->slug) . '#comments' }}" class="btn-flat">
+                                    <a href="{{ route('blog.show',[app()->getLocale(),$post->slug]) . '#comments' }}" class="btn-flat">
                                         <i class="material-icons">comment</i>
                                         <span>{{$post->comments_count}}</span>
                                     </a>

@@ -14,7 +14,7 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                     <i class="material-icons">menu</i>
                 </a>
-                
+
                 <ul class="right hide-on-med-and-down">
                     <li class="{{ Request::is('/') ? 'active' : '' }}">
                         <a href="{{ route('home',app()->getLocale()) }}">{{__('app.home')}}</a>
@@ -39,13 +39,31 @@
                     <li class="{{ Request::is('contact') ? 'active' : '' }}">
                         <a href="{{ route('contact',app()->getLocale()) }}">{{__('app.contact')}}</a>
                     </li>
-
+                    <li>
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown-language-frontend">
+                            <i class="material-icons">language</i>
+                        </a>
+                    </li>
+                    <ul id="dropdown-language-frontend" class="dropdown-content">
+                        <li>
+                            @foreach($available_locales as $available_locale => $locale_name)
+                                @if($available_locale === app()->getLocale())
+                                    <span class="ml-2 mr-2 text-gray-700">{{ $locale_name }}</span>
+                                @else
+                                    <a class="ml-1 underline ml-2 mr-2" href="{{ LaravelLocalization::getLocalizedURL($available_locale) }}">
+                                        <span>{{ $locale_name }}</span>
+                                    </a>
+                                @endif
+                            @endforeach
+                        </li>
+                    </ul>
                     @guest
                         <li><a href="{{ route('login',app()->getLocale()) }}"><i class="material-icons">input</i></a></li>
                         <li><a href="{{ route('register',app()->getLocale()) }}"><i class="material-icons">person_add</i></a></li>
                     @else
+
                         <li>
-                            <a class="dropdown-trigger" href="#!" data-target="dropdown-auth-frontend">
+                            <a class="dropdown-trigger" href="#" data-target="dropdown-auth-frontend">
                                 {{ ucfirst(Auth::user()->username) }}
                                 <i class="material-icons right">arrow_drop_down</i>
                             </a>
@@ -82,6 +100,7 @@
 
                     @endguest
                 </ul>
+
             </div>
 
         </div>

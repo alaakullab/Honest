@@ -18,6 +18,7 @@ class CreateTestimonialsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->string('testimonial');
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

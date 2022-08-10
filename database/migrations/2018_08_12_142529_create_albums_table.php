@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@
     <div class="block-header">
         <a href="{{route('admin.testimonials.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
-            <span>{{__('app.Back')}}</span>
+            <span>{{strtoupper(__('app.back'))}}</span>
         </a>
     </div>
 

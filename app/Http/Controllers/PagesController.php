@@ -21,7 +21,7 @@ use DB;
 
 class PagesController extends Controller
 {
-    public function properties()
+    public function properties($locale)
     {
         $cities     = Property::select('city','city_slug')->distinct('city_slug')->get();
         $properties = Property::latest()->with('rating')->withCount('comments')->paginate(12);
@@ -55,7 +55,7 @@ class PagesController extends Controller
 
 
     // AGENT PAGE
-    public function agents()
+    public function agents($locale)
     {
         $agents = User::latest()->where('role_id', 2)->paginate(12);
 
@@ -72,7 +72,7 @@ class PagesController extends Controller
 
 
     // BLOG PAGE
-    public function blog()
+    public function blog($locale)
     {
         $month = request('month');
         $year  = request('year');
@@ -92,7 +92,7 @@ class PagesController extends Controller
 
     public function blogshow($locale,$slug)
     {
-        $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first(); 
+        $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first();
 
         $blogkey = 'blog-' . $post->id;
         if(!Session::has($blogkey)){
@@ -105,7 +105,7 @@ class PagesController extends Controller
 
 
     // BLOG COMMENT
-    public function blogComments(Request $request, $id)
+    public function blogComments($locale,Request $request, $id)
     {
         $request->validate([
             'body'  => 'required'
@@ -127,7 +127,7 @@ class PagesController extends Controller
 
 
     // BLOG CATEGORIES
-    public function blogCategories()
+    public function blogCategories($locale)
     {
         $posts = Post::latest()->withCount(['comments','categories'])
                                 ->whereHas('categories', function($query){
@@ -140,7 +140,7 @@ class PagesController extends Controller
     }
 
     // BLOG TAGS
-    public function blogTags()
+    public function blogTags($locale)
     {
         $posts = Post::latest()->withCount('comments')
                                 ->whereHas('tags', function($query){
@@ -153,7 +153,7 @@ class PagesController extends Controller
     }
 
     // BLOG AUTHOR
-    public function blogAuthor()
+    public function blogAuthor($locale)
     {
         $posts = Post::latest()->withCount('comments')
                                 ->whereHas('user', function($query){
@@ -168,7 +168,7 @@ class PagesController extends Controller
 
 
     // MESSAGE TO AGENT (SINGLE AGENT PAGE)
-    public function messageAgent(Request $request)
+    public function messageAgent($locale,Request $request)
     {
         $request->validate([
             'agent_id'  => 'required',
@@ -188,12 +188,12 @@ class PagesController extends Controller
 
     
     // CONATCT PAGE
-    public function contact()
+    public function contact($locale)
     {
         return view('pages.contact');
     }
 
-    public function messageContact(Request $request)
+    public function messageContact($locale,Request $request)
     {
         $request->validate([
             'name'      => 'required',
@@ -224,14 +224,14 @@ class PagesController extends Controller
 
     }
 
-    public function contactMail(Request $request)
+    public function contactMail($locale,Request $request)
     {
         return $request->all();
     }
 
 
     // GALLERY PAGE
-    public function gallery()
+    public function gallery($locale)
     {
         $galleries = Gallery::latest()->paginate(12);
 
@@ -262,7 +262,7 @@ class PagesController extends Controller
 
 
     // PROPERTY RATING
-    public function propertyRating(Request $request)
+    public function propertyRating($locale,Request $request)
     {
         $rating      = $request->input('rating');
         $property_id = $request->input('property_id');
@@ -281,7 +281,7 @@ class PagesController extends Controller
 
 
     // PROPERTY CITIES
-    public function propertyCities()
+    public function propertyCities($locale)
     {
         $cities     = Property::select('city','city_slug')->distinct('city_slug')->get();
         $properties = Property::latest()->with('rating')->withCount('comments')

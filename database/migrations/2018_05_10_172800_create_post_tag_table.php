@@ -17,6 +17,7 @@ class CreatePostTagTable extends Migration
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->integer('tag_id')->unsigned();
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

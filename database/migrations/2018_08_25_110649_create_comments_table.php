@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->integer('parent')->default(0);
             $table->integer('parent_id')->nullable();
             $table->integer('approved')->default(1);
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

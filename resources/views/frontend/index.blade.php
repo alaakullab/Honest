@@ -83,7 +83,7 @@
                                     {{__('app.area')}}: <strong>{{ $property->area}}</strong> {{__('app.square meter')}}
                                 </span>
                                 <span class="btn-flat">
-                                    <i class="material-icons">comment</i> 
+                                    <i class="material-icons">comment</i>
                                     <strong>{{ $property->comments_count}}</strong>
                                 </span>
                             </div>
@@ -185,12 +185,6 @@
 @endsection
 
 @section('scripts')
-    <script>
-
-        function changeLanguage(lang){
-            window.location='{{url("change-language")}}/'+lang;
-        }
-    </script>
 <script>
     $(function(){
         var js_properties = <?php echo json_encode($properties);?>;
@@ -199,7 +193,7 @@
                 var elmt = element.rating;
                 var sum = 0;
                 for( var i = 0; i < elmt.length; i++ ){
-                    sum += parseFloat( elmt[i].rating ); 
+                    sum += parseFloat( elmt[i].rating );
                 }
                 var avg = sum/elmt.length;
                 if(isNaN(avg) == false){

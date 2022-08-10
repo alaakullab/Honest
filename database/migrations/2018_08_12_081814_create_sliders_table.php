@@ -18,6 +18,7 @@ class CreateSlidersTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image');
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }
