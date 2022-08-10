@@ -139,7 +139,7 @@
             <div class="row">
 
                 @foreach($posts as $post)
-                <div class="col s12 m4">
+                    <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
                             @if(Storage::disk('public')->exists('posts/'.$post->image) && $post->image)
@@ -150,7 +150,7 @@
                             <span class="card-title tooltipped" data-position="bottom" data-tooltip="{{$post->title}}">
                                 <a href="{{ route('blog.show',[app()->getLocale(),$post->slug]) }}">{{ str_limit($post->title,18) }}</a>
                             </span>
-                            {!! str_limit($post->body,120) !!}
+                            <article>{!! str_limit($post->body,90) !!}</article>
                         </div>
                         <div class="card-action blog-action">
                             <a href="{{ route('blog.author',[app()->getLocale(),$post->user->username]) }}" class="btn-flat">

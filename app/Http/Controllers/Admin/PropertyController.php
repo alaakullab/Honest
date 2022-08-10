@@ -97,6 +97,7 @@ class PropertyController extends Controller
         $property->city_slug= str_slug($request->city);
         $property->address  = $request->address;
         $property->area     = $request->area;
+        $property->lang = app()->getLocale();
 
         if(isset($request->featured)){
             $property->featured = true;

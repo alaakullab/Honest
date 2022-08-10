@@ -245,6 +245,7 @@ class DashboardController extends Controller
         $message  = $request->message;
         $name     = $request->name;
         $mailfrom = $request->mailfrom;
+        $lang = app()->getLocale();
 
         Mail::to($request->email)->send(new Contact($message,$name,$mailfrom));
 

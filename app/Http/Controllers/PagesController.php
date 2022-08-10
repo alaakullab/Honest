@@ -177,7 +177,10 @@ class PagesController extends Controller
             'phone'     => 'required',
             'message'   => 'required'
         ]);
-
+        $lang = ["lang" => app()->getLocale()];
+        $data = $request->all();
+        $data[] = array_push($data, ...$lang);
+        print_r($data);die();
         Message::create($request->all());
 
         if($request->ajax()){
@@ -204,12 +207,13 @@ class PagesController extends Controller
 
         $message  = $request->message;
         $mailfrom = $request->email;
-        
+
         Message::create([
             'agent_id'  => 1,
             'name'      => $request->name,
             'email'     => $mailfrom,
             'phone'     => $request->phone,
+            'lang'      => app()->getLocale(),
             'message'   => $message
         ]);
             

@@ -64,7 +64,7 @@
             @endif
 
             @if(isset($footersettings[0]) && $footersettings[0]['facebook'])
-                <a class="grey-text text-lighten-4 right" href="{{ $footersettings[0]['facebook'] }}" target="_blank">FACEBOOK</a>
+                <a class="grey-text text-lighten-4 right" href="{{ $footersettings[0]['facebook'] }}" target="_blank">facebook</a>
             @endif
             @if(isset($footersettings[0]) && $footersettings[0]['twitter'])
                 <a class="grey-text text-lighten-4 right m-r-10" href="{{ $footersettings[0]['twitter'] }}" target="_blank">TWITTER</a>

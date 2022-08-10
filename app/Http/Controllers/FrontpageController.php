@@ -18,7 +18,7 @@ class FrontpageController extends Controller
         $properties     = Property::latest()->where('featured',1)->where('lang', app()->getLocale())->with('rating')->withCount('comments')->take(6)->get();
         $services       = Service::orderBy('service_order')->get();
         $testimonials   = Testimonial::latest()->where('lang', app()->getLocale())->get();
-        $posts          = Post::latest()->where('status',1)->where('lang', app()->getLocale())->take(6)->get();
+        $posts          = Post::latest()->where('status',1)->where('lang', app()->getLocale())->take(3)->get();
 
         return view('frontend.index', compact('sliders','properties','services','testimonials','posts'));
     }

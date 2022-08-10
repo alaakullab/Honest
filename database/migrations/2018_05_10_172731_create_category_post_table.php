@@ -17,7 +17,7 @@ class CreateCategoryPostTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->integer('post_id')->unsigned();
-            $table->string('lang')->comment('application locale language');
+//            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }
