@@ -97,7 +97,7 @@ html {
 }
 
 .m-r-10 {
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .m-t-10 {
@@ -225,7 +225,7 @@ html {
 }
 
 .float-left {
-    float: left;
+    float: right;
 }
 
 
@@ -997,4 +997,8 @@ input:not([type]).validate+label, input[type=text]:not(.browser-default).validat
     .row .col.offset-m3 {
         margin-right: 25%;
     }
+}
+
+.collection-item .card-image-bg{
+    float: right !important;
 }
