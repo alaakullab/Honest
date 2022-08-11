@@ -74,8 +74,8 @@ class PagesController extends Controller
     // BLOG PAGE
     public function blog($locale)
     {
-        $month = request('month');
-        $year  = request('year');
+//        $month = request('month');
+//        $year  = request('year');
 
         $posts = Post::latest()->withCount('comments')
 //                                ->when($month, function ($query, $month) {
