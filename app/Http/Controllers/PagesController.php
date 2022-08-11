@@ -86,7 +86,6 @@ class PagesController extends Controller
                                 })
                                 ->where('status',1)
                                 ->paginate(10);
-        dd($posts);
         return view('pages.blog.index', compact('posts'));
     }
 
