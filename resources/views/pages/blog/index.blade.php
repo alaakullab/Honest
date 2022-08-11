@@ -73,7 +73,7 @@
 
                 <div class="col s12 m4">
 
-{{--                    @include('pages.blog.sidebar')--}}
+                    @include('pages.blog.sidebar')
 
                 </div>
 
