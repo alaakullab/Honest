@@ -66,7 +66,7 @@
 
 
                     <div class="m-t-30 m-b-60 center">
-                        {{ $posts->appends(['month' => Request::get('month'), 'year' => Request::get('year')])->links() }}
+{{--                        {{ $posts->appends(['month' => Request::get('month'), 'year' => Request::get('year')])->links() }}--}}
                     </div>
         
                 </div>
