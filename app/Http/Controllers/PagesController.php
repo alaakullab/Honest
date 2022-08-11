@@ -74,16 +74,16 @@ class PagesController extends Controller
     // BLOG PAGE
     public function blog($locale)
     {
-//        $month = request('month');
-//        $year  = request('year');
+        $month = request('month');
+        $year  = request('year');
 
         $posts = Post::latest()->withCount('comments')
-//                                ->when($month, function ($query, $month) {
-//                                    return $query->whereMonth('created_at', Carbon::parse($month)->month);
-//                                })
-//                                ->when($year, function ($query, $year) {
-//                                    return $query->whereYear('created_at', $year);
-//                                })
+                                ->when($month, function ($query, $month) {
+                                    return $query->whereMonth('created_at', Carbon::parse($month)->month);
+                                })
+                                ->when($year, function ($query, $year) {
+                                    return $query->whereYear('created_at', $year);
+                                })
                                 ->where('status',1)
                                 ->paginate(10);
         return view('pages.blog.index', compact('posts'));
