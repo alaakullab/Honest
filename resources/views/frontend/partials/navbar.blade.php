@@ -48,10 +48,14 @@
                         <li>
                             @foreach($available_locales as $available_locale => $locale_name)
                                 @if($available_locale === app()->getLocale())
-                                    <span class="ml-2 mr-2 text-gray-700">{{ $locale_name }}</span>
+                                    <a class="indigo-text" href="#">
+{{--                                        <i class="material-icons right">{{ $locale_name[1] }}</i>--}}
+                                        <span>{{ $locale_name[0] }}</span>
+                                    </a>
                                 @else
-                                    <a class="ml-1 underline ml-2 mr-2" href="{{ LaravelLocalization::getLocalizedURL($available_locale) }}">
-                                        <span>{{ $locale_name }}</span>
+                                    <a class="indigo-text" href="{{ LaravelLocalization::getLocalizedURL($available_locale) }}">
+{{--                                        <i class="material-icons right">{{ $locale_name[1] }}</i>--}}
+                                        <span>{{ $locale_name[0] }}</span>
                                     </a>
                                 @endif
                             @endforeach

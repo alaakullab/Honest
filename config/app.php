@@ -102,8 +102,8 @@ return [
     |
     */
     'available_locales' => [
-        'en' => 'English',
-        'ar' => 'عربي',
+        'en' => ['English','arrow_drop_down'],
+        'ar' => ['عربي','arrow_drop_down'],
     ],
 
     /*

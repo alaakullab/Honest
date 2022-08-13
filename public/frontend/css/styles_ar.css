@@ -1002,3 +1002,39 @@ input:not([type]).validate+label, input[type=text]:not(.browser-default).validat
 .collection-item .card-image-bg{
     float: right !important;
 }
+
+.dropdown-content{
+    top: 50px !important;
+    left: 110px !important;
+}
+ /*style*/
+.indigo.darken-4 {
+    background-color: #ffffff !important;
+}
+
+
+
+nav ul a {
+    color: #020418;
+    font-weight: 500;
+}
+
+nav ul a:hover {
+    color: #434e8c;
+}
+
+.indigo.darken-2 {
+    background-color: #6572c4 !important;
+}
+
+nav .brand-logo {
+    color: #0e134a;
+}
+
+ul li a i {
+    color: #434e8c !important;
+}
+
+nav a i{
+    color: #000;
+}

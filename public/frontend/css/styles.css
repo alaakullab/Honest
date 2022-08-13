@@ -819,3 +819,30 @@ li.collection.agent-message {
 .sidenav-overlay {
     display: none !important;
 }
+
+.dropdown-content{
+    top: 50px !important;
+    left: 800px !important;
+}
+/*style*/
+.indigo.darken-4 {
+    background-color: #ffffff !important;
+}
+
+nav ul a {
+    color: #020418;
+    font-weight: 500;
+}
+
+.indigo.darken-2 {
+    background-color: #6572c4 !important;
+}
+
+nav .brand-logo {
+    color: #0e134a;
+}
+
+ul li a i {
+    color: #434e8c !important;
+}
+
