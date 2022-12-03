@@ -20,7 +20,11 @@
 
     @yield('styles')
     
+    @if(app()->getLocale() == 'ar')
+    <link href="{{ asset('frontend/css/styles_ar.css') }}" rel="stylesheet">
+    @else
     <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet">
+    @endif
 </head>
 
     <body>
@@ -29,13 +33,14 @@
         @include('frontend.partials.navbar')
 
         {{-- SLIDER SECTION --}}
-        @if(Request::is('/'))
+
+        @if(Request::is(app()->getLocale()))
             @include('frontend.partials.slider')
         @endif
 
         {{-- SEARCH BAR --}}
         @include('frontend.partials.search')
-        
+
         {{-- MAIN CONTENT --}}
         <div class="main">
             @yield('content')

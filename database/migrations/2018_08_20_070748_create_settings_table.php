@@ -24,6 +24,7 @@ class CreateSettingsTable extends Migration
             $table->string('facebook');
             $table->string('twitter');
             $table->string('linkedin');
+            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

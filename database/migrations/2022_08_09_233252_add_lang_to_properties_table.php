@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlbumsTable extends Migration
+class AddLangToPropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->integer('user_id');
+        Schema::table('properties', function (Blueprint $table) {
             $table->string('lang')->comment('application locale language');
-            $table->timestamps();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        Schema::table('properties', function (Blueprint $table) {
+            //
+        });
     }
 }

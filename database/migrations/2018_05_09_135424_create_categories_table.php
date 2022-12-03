@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->string('lang')->comment('application locale language');
             $table->string('image')->default('default.png');
             $table->timestamps();
         });

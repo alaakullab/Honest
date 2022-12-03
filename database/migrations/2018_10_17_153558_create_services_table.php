@@ -18,6 +18,7 @@ class CreateServicesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('icon');
+            $table->string('lang')->comment('application locale language');
             $table->integer('service_order')->default(1);
             $table->timestamps();
         });

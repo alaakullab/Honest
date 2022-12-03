@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'role_id'       => 1,
-                'name'          => 'Admin',
+                'name'          => 'Honest',
                 'username'      => 'admin',
                 'email'         => 'admin@admin.com',
                 'image'         => 'default.png',
-                'about'         => 'Bio of admin',
-                'password'      => bcrypt('123456'),
+                'lang'         => 'en',
+                'about'         => '# Honest for # Real Estate 
+                                    Apartments, #houses, #land, #chalets, #chalets, #villas#',
+                'password'      => bcrypt('**8.Dbd0e.16**'),
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
@@ -30,6 +32,7 @@ class DatabaseSeeder extends Seeder
                 'username'      => 'agent',
                 'email'         => 'agent@agent.com',
                 'image'         => 'default.png',
+                'lang'         => 'en',
                 'about'         => '',
                 'password'      => bcrypt('123456'),
                 'created_at'    => date("Y-m-d H:i:s")
@@ -40,6 +43,7 @@ class DatabaseSeeder extends Seeder
                 'username'      => 'user',
                 'email'         => 'user@user.com',
                 'image'         => 'default.png',
+                'lang'         => 'ar',
                 'about'         => null,
                 'password'      => bcrypt('123456'),
                 'created_at'    => date("Y-m-d H:i:s")

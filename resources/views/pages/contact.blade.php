@@ -64,7 +64,7 @@
                                 <label for="message">{{__('app.Message')}}</label>
                             </div>
                             
-                            <button id="msgsubmitbtn" class="btn waves-effect waves-light indigo darken-4 btn-large" type="submit">
+                            <button id="msgsubmitbtn" class="btn indigo" type="submit">
                                 <span>{{__('app.send')}}</span>
                                 <i class="material-icons right">send</i>
                             </button>

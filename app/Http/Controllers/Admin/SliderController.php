@@ -15,7 +15,7 @@ class SliderController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::latest()->get();
+        $sliders = Slider::latest()->where('lang', app()->getLocale())->get();
 
         return view('admin.sliders.index', compact('sliders'));
     }
@@ -52,6 +52,7 @@ class SliderController extends Controller
         $slider->title = $request->title;
         $slider->description = $request->description;
         $slider->image = $imagename;
+        $slider->lang = app()->getLocale();
         $slider->save();
 
         Toastr::success('message', __('app.Slider created successfully.'));

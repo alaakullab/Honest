@@ -2,13 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', 'en', 301);
+Route::redirect('/', 'ar', 301);
+
+
 Route::group(['prefix' => '/{language}'], function () {
-//     if (! in_array($locale, ['en', 'ar'])) {
-//         abort(404);
-//     }
-//    Route::get('/', 'FrontpageController@index')->name('home');
-//    Route::get('/', [\App\Http\Controllers\FrontpageController::class, 'index'])->name('home');
+
+//    if (isset($locale) && !in_array($locale, config('app.available_locales'))) {
+//        abort(400);
+//
+////        app()->setLocale($language);
+//        //    print_r(config('app.available_locales'));die();
+//
+////        return $language;
+//    }
 
 
 Route::get('/', 'FrontpageController@index')->name('home');

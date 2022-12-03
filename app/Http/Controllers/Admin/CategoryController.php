@@ -60,6 +60,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = $slug;
         $category->image = $imagename;
+        $category->lang = app()->getLocale();
         $category->save();
 
         Toastr::success('message', 'Category created successfully.');

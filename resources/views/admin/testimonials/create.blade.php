@@ -13,7 +13,7 @@
     <div class="block-header">
         <a href="{{route('admin.testimonials.index',app()->getLocale())}}" class="waves-effect waves-light btn btn-danger right m-b-15">
             <i class="material-icons left">arrow_back</i>
-            <span>{{__('app.Back')}}</span>
+            <span>{{strtoupper(__('app.back'))}}</span>
         </a>
     </div>
 
@@ -52,7 +52,7 @@
 
                         <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                             <i class="material-icons">save</i>
-                            <span>{{__('app.Save')}}</span>
+                            <span>{{strtoupper(__('app.Save'))}}</span>
                         </button>
 
                     </form>

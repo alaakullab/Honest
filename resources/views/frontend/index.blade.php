@@ -83,7 +83,7 @@
                                     {{__('app.area')}}: <strong>{{ $property->area}}</strong> {{__('app.square meter')}}
                                 </span>
                                 <span class="btn-flat">
-                                    <i class="material-icons">comment</i> 
+                                    <i class="material-icons">comment</i>
                                     <strong>{{ $property->comments_count}}</strong>
                                 </span>
                             </div>
@@ -139,7 +139,7 @@
             <div class="row">
 
                 @foreach($posts as $post)
-                <div class="col s12 m4">
+                    <div class="col s12 m4">
                     <div class="card">
                         <div class="card-image">
                             @if(Storage::disk('public')->exists('posts/'.$post->image) && $post->image)
@@ -150,7 +150,7 @@
                             <span class="card-title tooltipped" data-position="bottom" data-tooltip="{{$post->title}}">
                                 <a href="{{ route('blog.show',[app()->getLocale(),$post->slug]) }}">{{ str_limit($post->title,18) }}</a>
                             </span>
-                            {!! str_limit($post->body,120) !!}
+                            <article>{!! str_limit($post->body,90) !!}</article>
                         </div>
                         <div class="card-action blog-action">
                             <a href="{{ route('blog.author',[app()->getLocale(),$post->user->username]) }}" class="btn-flat">
@@ -185,12 +185,6 @@
 @endsection
 
 @section('scripts')
-    <script>
-
-        function changeLanguage(lang){
-            window.location='{{url("change-language")}}/'+lang;
-        }
-    </script>
 <script>
     $(function(){
         var js_properties = <?php echo json_encode($properties);?>;
@@ -199,7 +193,7 @@
                 var elmt = element.rating;
                 var sum = 0;
                 for( var i = 0; i < elmt.length; i++ ){
-                    sum += parseFloat( elmt[i].rating ); 
+                    sum += parseFloat( elmt[i].rating );
                 }
                 var avg = sum/elmt.length;
                 if(isNaN(avg) == false){

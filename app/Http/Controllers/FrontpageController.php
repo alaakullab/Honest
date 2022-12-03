@@ -14,15 +14,15 @@ class FrontpageController extends Controller
     
     public function index()
     {
-//        dd(__('auth.Home'));
-        $sliders        = Slider::latest()->get();
-        $properties     = Property::latest()->where('featured',1)->with('rating')->withCount('comments')->take(6)->get();
+        $sliders        = Slider::latest()->where('lang', app()->getLocale())->get();
+        $properties     = Property::latest()->where('featured',1)->where('lang', app()->getLocale())->with('rating')->withCount('comments')->take(6)->get();
         $services       = Service::orderBy('service_order')->get();
-        $testimonials   = Testimonial::latest()->get();
-        $posts          = Post::latest()->where('status',1)->take(6)->get();
+        $testimonials   = Testimonial::latest()->where('lang', app()->getLocale())->get();
+        $posts          = Post::latest()->where('status',1)->where('lang', app()->getLocale())->take(3)->get();
 
         return view('frontend.index', compact('sliders','properties','services','testimonials','posts'));
     }
+
 
 
     public function search(Request $request)

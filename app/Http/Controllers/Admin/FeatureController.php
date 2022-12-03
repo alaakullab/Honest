@@ -33,6 +33,7 @@ class FeatureController extends Controller
 
         $tag = new Feature();
         $tag->name = $request->name;
+        $tag->lang = app()->getLocale();
         $tag->slug = str_slug($request->name);
         $tag->save();
 
