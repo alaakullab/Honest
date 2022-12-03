@@ -77,7 +77,6 @@ class DashboardController extends Controller
 
 
 
-
     public function changePassword()
     {
         return view('agent.changepassword');

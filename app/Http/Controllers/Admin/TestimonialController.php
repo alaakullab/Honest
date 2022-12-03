@@ -15,7 +15,7 @@ class TestimonialController extends Controller
 {
     public function index()
     {
-        $testimonials = Testimonial::latest()->where('lang', app()->getLocale())->get();
+        $testimonials = Testimonial::latest()->get();
 
         return view('admin.testimonials.index', compact('testimonials'));
     }
@@ -53,7 +53,6 @@ class TestimonialController extends Controller
         $testimonial->name = $request->name;
         $testimonial->testimonial = $request->testimonial;
         $testimonial->image = $imagename;
-        $testimonial->lang = app()->getLocale();
         $testimonial->save();
 
         Toastr::success('message', 'Testimonial created successfully.');
@@ -64,6 +63,7 @@ class TestimonialController extends Controller
     public function edit($locale,$id)
     {
         $testimonial = Testimonial::find($id);
+
         return view('admin.testimonials.edit', compact('testimonial'));
     }
 

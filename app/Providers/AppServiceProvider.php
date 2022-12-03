@@ -45,12 +45,11 @@ class AppServiceProvider extends ServiceProvider
 
             view()->composer('frontend.partials.footer', function($view) {
                 $view->with('footerproperties', Property::latest()->take(3)->get());
-                $view->with('footersettings', Setting::select('footer','aboutus','facebook','twitter','linkedin')->where('lang', app()->getLocale())->get());
+                $view->with('footersettings', Setting::select('footer','aboutus','facebook','twitter','linkedin')->get());
             });
 
             view()->composer('frontend.partials.navbar', function($view) {
-                $view->with('navbarsettings', Setting::select('name')->where('lang', app()->getLocale())->get());
-                $view->with('available_locales', config('app.available_locales'));
+                $view->with('navbarsettings', Setting::select('name')->get());
             });
 
             view()->composer('backend.partials.navbar', function($view) {
@@ -59,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
             });
 
             view()->composer('pages.contact', function($view) {
-                $view->with('contactsettings', Setting::select('phone','email','address')->where('lang', app()->getLocale())->get());
+                $view->with('contactsettings', Setting::select('phone','email','address')->get());
             });
 
             view()->composer('pages.blog.sidebar', function($view) {

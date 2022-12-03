@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('app.change password'))
+@section('title', 'Change Password')
 
 @push('styles')
 
@@ -16,34 +16,34 @@
         <div class="col-xs-12">
             <div class="card">
                 <div class="header bg-indigo">
-                    <h2>{{strtoupper(__('app.change password'))}}</h2>
+                    <h2>CHANGE PASSWORD</h2>
                 </div>
                 <div class="body">
-                    <form action="{{route('admin.changepassword',app()->getLocale())}}" method="POST">
+                    <form action="{{route('admin.changepassword')}}" method="POST">
                         @csrf
 
                         <div class="form-group">
-                            <label for="currentpassword" class="form-label">{{__('app.Current Password')}}</label>
                             <div class="form-line">
-                                <input type="password" name="currentpassword" id="currentpassword" class="form-control">
+                                <input type="password" name="currentpassword" class="form-control">
+                                <label class="form-label">Current Password</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="newpassword" class="form-label">{{__('app.New Password')}}</label>
                             <div class="form-line">
-                                <input type="password" name="newpassword" id="newpassword" class="form-control">
+                                <input type="password" name="newpassword" class="form-control">
+                                <label class="form-label">New Password</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="newpassword_confirmation" class="form-label">{{__('app.Confirm New Password')}}</label>
                             <div class="form-line">
-                                <input type="password" name="newpassword_confirmation" id="newpassword_confirmation" class="form-control">
+                                <input type="password" name="newpassword_confirmation" class="form-control">
+                                <label class="form-label">Confirm New Password</label>
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                             <i class="material-icons">save</i>
-                            <span>{{strtoupper(__('app.Save'))}}</span>
+                            <span>SAVE</span>
                         </button>
 
                     </form>

@@ -23,7 +23,7 @@
                             {!! $post->body !!}
                         </div>
                         <div class="card-action blog-action">
-                            <a href="{{ route('blog.author',[app()->getLocale(),$post->user->username]) }}" class="btn-flat">
+                            <a href="{{ route('blog.author',$post->user->username) }}" class="btn-flat">
                                 <i class="material-icons">person</i>
                                 <span>{{$post->user->name}}</span>
                             </a>
@@ -32,13 +32,13 @@
                                 <span>{{$post->created_at->diffForHumans()}}</span>
                             </a>
                             @foreach($post->categories as $key => $category)
-                                <a href="{{ route('blog.categories',[app()->getLocale(),$category->slug]) }}" class="btn-flat">
+                                <a href="{{ route('blog.categories',$category->slug) }}" class="btn-flat">
                                     <i class="material-icons">folder</i>
                                     <span>{{$category->name}}</span>
                                 </a>
                             @endforeach
                             @foreach($post->tags as $key => $tag)
-                                <a href="{{ route('blog.tags',[app()->getLocale(),$tag->slug]) }}" class="btn-flat">
+                                <a href="{{ route('blog.tags',$tag->slug) }}" class="btn-flat">
                                     <i class="material-icons">label</i>
                                     <span>{{$tag->name}}</span>
                                 </a>
@@ -107,7 +107,7 @@
                             @auth
                                 <div class="comment-box">
                                     <h6>Leave a comment</h6>
-                                    <form action="{{ route('blog.comment',[app()->getLocale(),$post->id]) }}" method="POST">
+                                    <form action="{{ route('blog.comment',$post->id) }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="parent" value="0">
 
@@ -150,7 +150,7 @@
 
         $('#comment-'+commentid).empty().append(
             `<div class="comment-box">
-                <form action="{{ route('blog.comment',[app()->getLocale(),$post->id]) }}" method="POST">
+                <form action="{{ route('blog.comment',$post->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="parent" value="1">
                     <input type="hidden" name="parent_id" value="`+commentid+`">

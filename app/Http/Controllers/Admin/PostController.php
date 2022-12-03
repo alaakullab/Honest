@@ -67,7 +67,6 @@ class PostController extends Controller
         $post->slug = $slug;
         $post->image = $imagename;
         $post->body = $request->body;
-        $post->lang = app()->getLocale();
         if(isset($request->status)){
             $post->status = true;
         }
@@ -128,7 +127,7 @@ class PostController extends Controller
             if(Storage::disk('public')->exists('posts/'.$post->image)){
                 Storage::disk('public')->delete('posts/'.$post->image);
             }
-            $postimage = Image::make($image)->resize(1600, 980)->stream();
+            $postimage = Image::make($image)->resize(1600, 980)->save();
             Storage::disk('public')->put('posts/'.$imagename, $postimage);
 
         }else{
