@@ -81,22 +81,22 @@
                     <ul class="ml-menu">
                         <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
                             <a href="{{ route('admin.settings',app()->getLocale()) }}">
-                                <span>{{__('app.Settings')}}</span>
+                                <span>Settings</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/changepassword') ? 'active' : '' }}">
                             <a href="{{ route('admin.changepassword',app()->getLocale()) }}">
-                                <span>{{__('app.Change Password')}}</span>
+                                <span>Change Password</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/profile') ? 'active' : '' }}">
                             <a href="{{ route('admin.profile',app()->getLocale()) }}">
-                                <span>{{__('app.Profile')}}</span>
+                                <span>Profile</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('admin/message*') ? 'active' : '' }}">
                             <a href="{{ route('admin.message',app()->getLocale()) }}">
-                                <span>{{__('app.Message')}}</span>
+                                <span>Message</span>
                             </a>
                         </li>
                     </ul>

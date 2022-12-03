@@ -34,7 +34,6 @@ class TagController extends Controller
         $tag = new Tag();
         $tag->name = $request->name;
         $tag->slug = str_slug($request->name);
-        $tag->lang = app()->getLocale();
         $tag->save();
 
         Toastr::success('message', 'Tag created successfully.');

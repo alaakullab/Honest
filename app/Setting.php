@@ -14,7 +14,6 @@ class Setting extends Model
         'footer',
         'aboutus',
         'facebook',
-        'lang',
         'twitter',
         'linkedin',
     ];

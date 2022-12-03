@@ -21,7 +21,7 @@ use DB;
 
 class PagesController extends Controller
 {
-    public function properties($locale)
+    public function properties()
     {
         $cities     = Property::select('city','city_slug')->distinct('city_slug')->get();
         $properties = Property::latest()->with('rating')->withCount('comments')->paginate(12);
@@ -55,7 +55,7 @@ class PagesController extends Controller
 
 
     // AGENT PAGE
-    public function agents($locale)
+    public function agents()
     {
         $agents = User::latest()->where('role_id', 2)->paginate(12);
 
@@ -72,7 +72,7 @@ class PagesController extends Controller
 
 
     // BLOG PAGE
-    public function blog($locale)
+    public function blog()
     {
         $month = request('month');
         $year  = request('year');
@@ -86,12 +86,13 @@ class PagesController extends Controller
                                 })
                                 ->where('status',1)
                                 ->paginate(10);
+
         return view('pages.blog.index', compact('posts'));
     }
 
     public function blogshow($locale,$slug)
     {
-        $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first();
+        $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first(); 
 
         $blogkey = 'blog-' . $post->id;
         if(!Session::has($blogkey)){
@@ -104,7 +105,7 @@ class PagesController extends Controller
 
 
     // BLOG COMMENT
-    public function blogComments($locale,Request $request, $id)
+    public function blogComments(Request $request, $id)
     {
         $request->validate([
             'body'  => 'required'
@@ -126,7 +127,7 @@ class PagesController extends Controller
 
 
     // BLOG CATEGORIES
-    public function blogCategories($locale)
+    public function blogCategories()
     {
         $posts = Post::latest()->withCount(['comments','categories'])
                                 ->whereHas('categories', function($query){
@@ -139,7 +140,7 @@ class PagesController extends Controller
     }
 
     // BLOG TAGS
-    public function blogTags($locale)
+    public function blogTags()
     {
         $posts = Post::latest()->withCount('comments')
                                 ->whereHas('tags', function($query){
@@ -152,7 +153,7 @@ class PagesController extends Controller
     }
 
     // BLOG AUTHOR
-    public function blogAuthor($locale)
+    public function blogAuthor()
     {
         $posts = Post::latest()->withCount('comments')
                                 ->whereHas('user', function($query){
@@ -167,7 +168,7 @@ class PagesController extends Controller
 
 
     // MESSAGE TO AGENT (SINGLE AGENT PAGE)
-    public function messageAgent($locale,Request $request)
+    public function messageAgent(Request $request)
     {
         $request->validate([
             'agent_id'  => 'required',
@@ -176,10 +177,7 @@ class PagesController extends Controller
             'phone'     => 'required',
             'message'   => 'required'
         ]);
-        $lang = ["lang" => app()->getLocale()];
-        $data = $request->all();
-        $data[] = array_push($data, ...$lang);
-        print_r($data);die();
+
         Message::create($request->all());
 
         if($request->ajax()){
@@ -190,12 +188,12 @@ class PagesController extends Controller
 
     
     // CONATCT PAGE
-    public function contact($locale)
+    public function contact()
     {
         return view('pages.contact');
     }
 
-    public function messageContact($locale,Request $request)
+    public function messageContact(Request $request)
     {
         $request->validate([
             'name'      => 'required',
@@ -206,13 +204,12 @@ class PagesController extends Controller
 
         $message  = $request->message;
         $mailfrom = $request->email;
-
+        
         Message::create([
             'agent_id'  => 1,
             'name'      => $request->name,
             'email'     => $mailfrom,
             'phone'     => $request->phone,
-            'lang'      => app()->getLocale(),
             'message'   => $message
         ]);
             
@@ -227,14 +224,14 @@ class PagesController extends Controller
 
     }
 
-    public function contactMail($locale,Request $request)
+    public function contactMail(Request $request)
     {
         return $request->all();
     }
 
 
     // GALLERY PAGE
-    public function gallery($locale)
+    public function gallery()
     {
         $galleries = Gallery::latest()->paginate(12);
 
@@ -265,7 +262,7 @@ class PagesController extends Controller
 
 
     // PROPERTY RATING
-    public function propertyRating($locale,Request $request)
+    public function propertyRating(Request $request)
     {
         $rating      = $request->input('rating');
         $property_id = $request->input('property_id');
@@ -284,7 +281,7 @@ class PagesController extends Controller
 
 
     // PROPERTY CITIES
-    public function propertyCities($locale)
+    public function propertyCities()
     {
         $cities     = Property::select('city','city_slug')->distinct('city_slug')->get();
         $properties = Property::latest()->with('rating')->withCount('comments')

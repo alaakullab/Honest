@@ -23,7 +23,6 @@ class CreateMessagesTable extends Migration
             $table->string('phone');
             $table->text('message');
             $table->integer('status')->default(0);
-            $table->string('lang')->comment('application locale language');
             $table->timestamps();
         });
     }

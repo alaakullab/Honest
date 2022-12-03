@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('app.Profile'))
+@section('title', 'Profile')
 
 @push('styles')
 
@@ -17,10 +17,10 @@
             <div class="card">
                 <div class="header bg-indigo">
                     <h2>
-                        {{strtoupper(__('app.Profile'))}}
+                        PROFILE
                         <a href="{{route('admin.changepassword',app()->getLocale())}}" class="btn waves-effect waves-light right headerightbtn">
                             <i class="material-icons left">lock</i>
-                            <span>{{strtoupper(__('app.change password'))}}</span>
+                            <span>CHANGE PASSWORD </span>
                         </a>
                     </h2>
                 </div>
@@ -29,23 +29,23 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="name" class="form-label">{{__('app.Name')}}</label>
+                            <label class="form-label">Name</label>
                             <div class="form-line">
-                                <input type="text" name="name" id="name" class="form-control" value="{{ $profile->name or null }}">
+                                <input type="text" name="name" class="form-control" value="{{ $profile->name or null }}">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="username" class="form-label">{{__('app.User Name')}}</label>
+                            <label class="form-label">User Name</label>
                             <div class="form-line">
-                                <input type="text" name="username" id="username" class="form-control" value="{{ $profile->username or null }}">
+                                <input type="text" name="username" class="form-control" value="{{ $profile->username or null }}">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="form-label">{{__('app.Email')}}</label>
+                            <label class="form-label">Email</label>
                             <div class="form-line">
-                                <input type="email" name="email" id="email" class="form-control" value="{{ $profile->email or null }}">
+                                <input type="email" name="email" class="form-control" value="{{ $profile->email or null }}">
                             </div>
                         </div>
 
@@ -60,15 +60,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="about" class="form-label">{{__('app.About Us')}}</label>
+                            <label class="form-label">About Us</label>
                             <div class="form-line">
-                                <textarea name="about" rows="4" id="about" class="form-control no-resize">{{ $profile->about or null }}</textarea>
+                                <textarea name="about" rows="4" class="form-control no-resize">{{ $profile->about or null }}</textarea>
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-indigo btn-lg m-t-15 waves-effect">
                             <i class="material-icons">save</i>
-                            <span>{{__('app.Save')}}</span>
+                            <span>SAVE</span>
                         </button>
 
                     </form>

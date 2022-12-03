@@ -38,7 +38,6 @@ class ServiceController extends Controller
         $service->description   = $request->description;
         $service->icon          = $request->icon;
         $service->service_order = $request->service_order;
-        $service->lang = app()->getLocale();
         $service->save();
 
         Toastr::success('message', 'Service created successfully.');

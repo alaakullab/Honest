@@ -128,7 +128,7 @@
                                     </h5>
 
                                 </div>
-                                <div class="card-action property-action clearfix right">
+                                <div class="card-action property-action clearfix">
                                     <span class="btn-flat">
                                         <i class="material-icons">check_box</i>
                                         {{__('app.bedroom')}}: <strong>{{ $property->bedroom}}</strong>

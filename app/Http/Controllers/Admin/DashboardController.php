@@ -43,10 +43,9 @@ class DashboardController extends Controller
     }
 
 
-    public function settings($locale)
+    public function settings()
     {
-
-        $settings = Setting::where('lang', app()->getLocale())->first();
+        $settings = Setting::first();
 
         return view('admin.settings.setting',compact('settings'));
     }
@@ -67,7 +66,7 @@ class DashboardController extends Controller
         ]);
 
         Setting::updateOrCreate(
-            [ 'lang' => app()->getLocale() ],
+            [ 'id'       => 1 ],
             [
               'name'     => $request->name,
               'email'    => $request->email,
@@ -76,7 +75,6 @@ class DashboardController extends Controller
               'footer'   => $request->footer,
               'aboutus'  => $request->aboutus,
               'facebook' => $request->facebook,
-              'lang' => app()->getLocale(),
               'twitter'  => $request->twitter,
               'linkedin' => $request->linkedin
             ]
@@ -245,7 +243,6 @@ class DashboardController extends Controller
         $message  = $request->message;
         $name     = $request->name;
         $mailfrom = $request->mailfrom;
-        $lang = app()->getLocale();
 
         Mail::to($request->email)->send(new Contact($message,$name,$mailfrom));
 
